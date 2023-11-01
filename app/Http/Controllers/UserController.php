@@ -30,7 +30,7 @@ class UserController extends Controller
             'apellido'=> ['required'],
             'telefono'=> ['required'],
             'documento'=> ['required'],
-            'areas_id'=> ['required']
+            'fK_area'=> ['required']
         ]);
 
         $user = User::create([
@@ -40,7 +40,7 @@ class UserController extends Controller
             'apellido' => $request->apellido,
             'telefono' => $request->telefono,
             'documento' => $request->documento,
-            'areas_id' => $request->areas_id
+            'fK_area' => $request->fK_area
         ]);
 
         //avatar
@@ -75,7 +75,7 @@ class UserController extends Controller
             'apellido'=> ['required'],
             'telefono'=> ['required'],
             'documento'=> ['required'],
-            'areas_id'=> ['required']
+            'fK_area'=> ['required']
         ]);
         $user->update([
             'name' => $request->name,
@@ -84,7 +84,7 @@ class UserController extends Controller
             'apellido' => $request->apellido,
             'telefono' => $request->telefono,
             'documento' => $request->documento,
-            'areas_id' => $request->areas_id
+            'fK_area' => $request->fK_area
         ]);
 
         if($request->hasFile('avatar')){
@@ -112,7 +112,7 @@ class UserController extends Controller
             'apellido' => $request->apellido,
             'telefono' => $request->telefono,
             'documento' => $request->documento,
-            'areas_id' => $request->areas_id
+            'fK_area' => $request->fK_area
         ]);
 
         if($request->hasFile('avatar')){

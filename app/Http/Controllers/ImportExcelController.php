@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\AreasImport;
-use App\Imports\ClaseImport;
-use App\Imports\DependenciaImport;
-use App\Imports\EstadovigenciaImport;
-use App\Imports\FamiliaImport;
-use App\Imports\FuenteImport;
-use App\Imports\ModalidadeImport;
+use App\Imports\AreaImport;
+use App\Imports\SectorImport;
+use App\Imports\CarteraImport;
+use App\Imports\ProgramaImport;
 use App\Imports\ProductoImport;
-use App\Imports\SegmentoImport;
-use App\Imports\PlanadquisicioneImport;
+use App\Imports\PlanDesarrolloImport;
+use App\Imports\SubProgramaImport;
+use App\PlanDesarrollo;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -19,53 +17,38 @@ class ImportExcelController extends Controller
 {
     public function areas_import(Request $request){
         $file = $request->file('file');
-        Excel::import(new AreasImport, $file);
+        Excel::import(new AreaImport, $file);
         return back()->with('message', 'Importación de áreas completada.');
     }
-    public function dependencias_import(Request $request){
+    public function carteras_import(Request $request){
         $file = $request->file('file');
-        Excel::import(new DependenciaImport, $file);
-        return back()->with('message', 'Importación de dependencias completada.');
-    }
-    public function planadquisicione_import(Request $request){
-        $file = $request->file('file');
-        Excel::import(new PlanadquisicioneImport, $file);
-        return back()->with('message', 'Importación de Inventario completada.');
-    }
-    public function estado_vigencia_import(Request $request){
-        $file = $request->file('file');
-        Excel::import(new EstadovigenciaImport, $file);
-        return back()->with('message', 'Importación de estado de vigencia completada.');
-    }
-
-    public function familias_import(Request $request){
-        $file = $request->file('file');
-        Excel::import(new FamiliaImport, $file);
-        return back()->with('message', 'Importación de familias completada.');
-    }
-    public function segmento_import(Request $request){
-        $file = $request->file('file');
-        Excel::import(new SegmentoImport, $file);
-        return back()->with('message', 'Importación de segmentos completada.');
-    }
-    public function clases_import(Request $request){
-        $file = $request->file('file');
-        Excel::import(new ClaseImport, $file);
-        return back()->with('message', 'Importación de clases completada.');
-    }
-    public function fuentes_import(Request $request){
-        $file = $request->file('file');
-        Excel::import(new FuenteImport, $file);
-        return back()->with('message', 'Importación de fuentes completada.');
-    }
-    public function modalidades_import(Request $request){
-        $file = $request->file('file');
-        Excel::import(new ModalidadeImport, $file);
-        return back()->with('message', 'Importación de modalidades completada.');
+        Excel::import(new CarteraImport, $file);
+        return back()->with('message', 'Importación de carteras completada.');
     }
     public function productos_import(Request $request){
         $file = $request->file('file');
         Excel::import(new ProductoImport, $file);
+        return back()->with('message', 'Importación de Productos completada.');
+    }
+
+    public function sectores_import(Request $request){
+        $file = $request->file('file');
+        Excel::import(new SectorImport, $file);
+        return back()->with('message', 'Importación de familias completada.');
+    }
+    public function planesdesarrollo_import(Request $request){
+        $file = $request->file('file');
+        Excel::import(new PlanDesarrolloImport, $file);
+        return back()->with('message', 'Importación de segmentos completada.');
+    }
+    public function programas_import(Request $request){
+        $file = $request->file('file');
+        Excel::import(new ProgramaImport, $file);
+        return back()->with('message', 'Importación de clases completada.');
+    }
+    public function subprogramas_import(Request $request){
+        $file = $request->file('file');
+        Excel::import(new SubProgramaImport, $file);
         return back()->with('message', 'Importación de productos completada.');
     }
 }

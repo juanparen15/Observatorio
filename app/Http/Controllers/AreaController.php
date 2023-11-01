@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Area;
-use App\Dependencia;
+use App\Cartera;
 use Illuminate\Http\Request;
 use App\Http\Requests\Area\StoreRequest;
 use App\Http\Requests\Area\UpdateRequest;
@@ -24,56 +24,58 @@ class AreaController extends Controller
             'permission:admin.areas.update',
             'permission:admin.areas.destroy',
             'permission:admin.areas.edit'
-            ]);
+        ]);
     }
-    
+
     public function index()
     {
         $areas = Area::get();
-       return view ('admin.areas.index',compact('areas'));
+        return view('admin.areas.index', compact('areas'));
     }
-    
+
     public function create()
-    {      
-        $dependencias = Dependencia::get();
-        return view ('admin.areas.create',compact('dependencias'));
+    {
+        $carteras = Cartera::get();
+        return view('admin.areas.create', compact('carteras'));
     }
-    
+
     public function store(StoreRequest $request)
     {
         Area::create([
-            'nomarea'=>$request->nomarea,
-            'slug'=> Str::slug($request->nomarea , '-'),
-            'dependencia_id'=>$request->dependencia_id,
+            'codA' => $request->codA,
+            'nomA' => $request->nomA,
+            'slug' => Str::slug($request->nomA, '-'),
+            'fK_car' => $request->fK_car
         ]);
 
-        return redirect()->route('admin.areas.index')->with('flash','registrado');
+        return redirect()->route('admin.areas.index')->with('flash', 'registrado');
     }
-    
+
     // public function show(Area $area)
     // {
     //     return view ('admin.areas.show',compact('area'));
     // }
-    
+
     public function edit(Area $area)
     {
-        $dependencias = Dependencia::get();
-        return view ('admin.areas.edit',compact('area','dependencias'));
+        $carteras = Cartera::get();
+        return view('admin.areas.edit', compact('area', 'carteras'));
     }
 
     public function update(UpdateRequest $request, Area $area)
     {
         $area->update([
-            'nomarea'=>$request->nomarea,
-            'slug'=> Str::slug($request->nomarea , '-'),
-            'dependencia_id'=>$request->dependencia_id,
+            'codA' => $request->codA,
+            'nomA' => $request->nomA,
+            'slug' => Str::slug($request->nomA, '-'),
+            'fK_car' => $request->fK_car
         ]);
-        return redirect()->route('admin.areas.index')->with('flash','actualizado');
+        return redirect()->route('admin.areas.index')->with('flash', 'actualizado');
     }
-    
+
     public function destroy(Area $area)
     {
         $area->delete();
-        return redirect()->route('admin.areas.index')->with('flash','eliminado');
+        return redirect()->route('admin.areas.index')->with('flash', 'eliminado');
     }
 }

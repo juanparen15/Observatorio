@@ -2,68 +2,71 @@
 
 namespace App\Http\Controllers;
 
-use App\Dependencia;
+use App\Cartera;
 use Illuminate\Http\Request;
 use App\Http\Requests\Dependencia\StoreRequest;
 use App\Http\Requests\Dependencia\UpdateRequest;
 use Illuminate\Support\Str;
-class DependenciaController extends Controller
+
+class CarteraController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.dependencias.index',
-            'permission:admin.dependencias.store',
-            'permission:admin.dependencias.create',
-            'permission:admin.dependencias.destroy',
-            'permission:admin.dependencias.update',
-            'permission:admin.dependencias.edit'
-            ]);
+            'permission:admin.carteras.index',
+            'permission:admin.carteras.store',
+            'permission:admin.carteras.create',
+            'permission:admin.carteras.destroy',
+            'permission:admin.carteras.update',
+            'permission:admin.carteras.edit'
+        ]);
     }
-    
+
     public function index()
     {
-       $dependencias = Dependencia::get();
-       return view ('admin.dependencias.index',compact('dependencias'));
+        $carteras = Cartera::get();
+        return view('admin.carteras.index', compact('carteras'));
     }
-    
+
     public function create()
     {
-        return view ('admin.dependencias.create');
+        return view('admin.carteras.create');
     }
-    
+
     public function store(StoreRequest $request)
     {
-        Dependencia::create([
-            'nomdependencia'=>$request->nomdependencia,
-            'slug'=> Str::slug($request->nomdependencia , '-'),
+        Cartera::create([
+            'codC' => $request->codC,
+            'nomCar' => $request->nomCar,
+            'slug' => Str::slug($request->nomCar, '-'),
         ]);
-        return redirect()->route('admin.dependencias.index')->with('flash','registrado');
+        return redirect()->route('admin.dependencias.index')->with('flash', 'registrado');
     }
-    
-    public function show(Dependencia $dependencia)
+
+    public function show(Cartera $cartera)
     {
-        return view ('admin.dependencias.show',compact('dependencia'));
+        return view('admin.carteras.show', compact('cartera'));
     }
-    
-    public function edit(Dependencia $dependencia)
+
+    public function edit(Cartera $cartera)
     {
-        return view ('admin.dependencias.edit',compact('dependencia'));
+        return view('admin.carteras.edit', compact('cartera'));
     }
-    
-    public function update(UpdateRequest $request, Dependencia $dependencia)
+
+    public function update(UpdateRequest $request, Cartera $cartera)
     {
-        $dependencia->update([
-            'nomdependencia'=>$request->nomdependencia,
-            'slug'=> Str::slug($request->nomdependencia , '-'),
+        $cartera->update([
+            'codC' => $request->codC,
+            'nomCar' => $request->nomCar,
+            'slug' => Str::slug($request->nomCar, '-'),
         ]);
-        return redirect()->route('admin.dependencias.index')->with('flash','actualizado');
+        return redirect()->route('admin.carteras.index')->with('flash', 'actualizado');
     }
-    
-    public function destroy(Dependencia $dependencia)
+
+    public function destroy(Cartera $cartera)
     {
-        $dependencia->delete();
-        return redirect()->route('admin.dependencias.index')->with('flash','eliminado');
+        $cartera->delete();
+        return redirect()->route('admin.carteras.index')->with('flash', 'eliminado');
     }
 }

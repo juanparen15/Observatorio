@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Segmento;
+namespace App\Http\Requests\TipoProducto;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'detsegmento' => 'required'
+            'nomProd' => 'required'
         ];
     }
 }
