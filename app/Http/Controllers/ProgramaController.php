@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\Clase\StoreRequest;
 use App\Http\Requests\Clase\UpdateRequest;
-use App\Clase;
-use App\Familia;
+use App\Programa;
+use App\Sector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 class ClaseController extends Controller

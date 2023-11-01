@@ -20,12 +20,12 @@ class Programa extends Model
     }
      
     //Relacion Uno a Muchos (Inversa)
-    public function sector(){
+    public function sectores(){
         return $this->belongsTo(Sector::class);
     }
 
     //Relacion Uno a Muchos 
-    public function subprograma(){
+    public function subprogramas(){
         return $this->hasMany(SubPrograma::class);
     }
 }

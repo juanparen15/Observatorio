@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Familia;
-use App\Segmento;
+use App\Sector;
+use App\PlanDesarrollo;
 use Illuminate\Http\Request;
 use App\Http\Requests\familia\StoreRequest;
 use App\Http\Requests\familia\UpdateRequest;
 use Illuminate\Support\Str;
-class FamiliaController extends Controller
+class SectorController extends Controller
 {
     
     public function __construct()

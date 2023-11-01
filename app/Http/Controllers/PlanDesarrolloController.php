@@ -2,73 +2,75 @@
 
 namespace App\Http\Controllers;
 
-use App\Segmento;
+use App\PlanDesarrollo;
 use Illuminate\Http\Request;
-use App\Http\Requests\Segmento\StoreRequest;
-use App\Http\Requests\Segmento\UpdateRequest;
+use App\Http\Requests\PlanDesarrollo\StoreRequest;
+use App\Http\Requests\PlanDesarrollo\UpdateRequest;
 use Illuminate\Support\Str;
-class SegmentoController extends Controller
+class PlanDesarrolloController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.segmentos.store',
-            'permission:admin.segmentos.index', 
-            'permission:admin.segmentos.create',
-            'permission:admin.segmentos.update',
-            'permission:admin.segmentos.destroy',
-            'permission:admin.segmentos.edit'
+            'permission:admin.planesdesarrollo.store',
+            'permission:admin.planesdesarrollo.index', 
+            'permission:admin.planesdesarrollo.create',
+            'permission:admin.planesdesarrollo.update',
+            'permission:admin.planesdesarrollo.destroy',
+            'permission:admin.planesdesarrollo.edit'
             ]);
     }
     public function index()
     {
-        $segmentos = Segmento::get();
-        return view ('admin.segmentos.index',compact('segmentos'));
+        $planesdesarrollo = PlanDesarrollo::get();
+        return view ('admin.planesdesarrollo.index',compact('planesdesarrollo'));
     }
 
     
     public function create()
     {
-        return view ('admin.segmentos.create');
+        return view ('admin.planesdesarrollo.create');
     }
 
     
     public function store(StoreRequest $request)
     {
-        Segmento::create([
-            'detsegmento'=> $request->detsegmento,
-            'slug'=> Str::slug($request->detsegmento , '-')
+        PlanDesarrollo::create([
+            'anno'=> $request->anno,
+            'nomPD'=> $request->nomPD,
+            'slug'=> Str::slug($request->nomPD , '-')
         ]);
-        return redirect()->route('admin.segmentos.index')->with('flash','registrado');
+        return redirect()->route('admin.planesdesarrollo.index')->with('flash','registrado');
     }
 
     
-    public function show(Segmento $segmento)
+    public function show(PlanDesarrollo $plandesarrollo)
     {
-        return view ('admin.segmentos.show',compact('segmento'));
+        return view ('admin.planesdesarrollo.show',compact('plandesarrollo'));
     }
 
    
-    public function edit(Segmento $serie)
+    public function edit(PlanDesarrollo $plan)
     {
-        return view ('admin.segmentos.edit',compact('serie'));
+        return view ('admin.planesdesarrollo.edit',compact('plan'));
     }
 
    
-    public function update(UpdateRequest $request, Segmento $serie)
+    public function update(UpdateRequest $request, PlanDesarrollo $plan)
     {
-        $serie->update([
-            'detsegmento'=> $request->detsegmento,
-            'slug'=> Str::slug($request->detsegmento , '-')
+        $plan->update([
+            'anno'=> $request->anno,
+            'nomPD'=> $request->nomPD,
+            'slug'=> Str::slug($request->nomPD , '-')
         ]);
-        return redirect()->route('admin.segmentos.index')->with('flash','actualizado');
+        return redirect()->route('admin.planesdesarrollo.index')->with('flash','actualizado');
     }
 
     
-    public function destroy(Segmento $serie)
+    public function destroy(PlanDesarrollo $plan)
     {
-        $serie->delete();
-        return redirect()->route('admin.segmentos.index')->with('flash','eliminado');
+        $plan->delete();
+        return redirect()->route('admin.planesdesarrollo.index')->with('flash','eliminado');
     }
 }

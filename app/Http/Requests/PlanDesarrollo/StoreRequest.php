@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Vigenfutura;
+namespace App\Http\Requests\PlanDesarrollo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,7 +13,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'anno' => 'required',
+            'nomPD' => 'required'
+            
         ];
     }
 }

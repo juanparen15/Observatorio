@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Tipoadquisicione;
+namespace App\Http\Requests\Segmento;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'detsegmento' => 'required'
         ];
     }
 }

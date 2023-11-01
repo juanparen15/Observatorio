@@ -14,13 +14,13 @@ class SubPrograma extends Model
     }
 
     //Relacion Uno a Muchos (Inversa)
-    public function programa(){
+    public function programas(){
         return $this->belongsTo(Programa::class);
     }
 
     //Relacion Uno a Muchos
 
-    public function producto(){
+    public function productos(){
         return $this->hasMany(Producto::class);
     }
     // //Relacion Muchos a Muchos

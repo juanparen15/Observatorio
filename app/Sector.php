@@ -14,12 +14,12 @@ class Sector extends Model
     }
 
    //Relacion Uno a Muchos (Inversa)
-   public function planDesarrollo(){
+   public function planesDesarrollo(){
       return $this->belongsTo(PlanDesarrollo::class);
     }
 
    //Relacion Uno a Muchos 
-   public function clase(){
-     return $this->hasMany(Clase::class);
+   public function programas(){
+     return $this->hasMany(Programa::class);
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Requiproyecto;
+namespace App\Http\Requests\PlanDesarrollo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'detproyeto' => 'required',
+            'anno' => 'required',
+            'nomPD' => 'required'
         ];
     }
 }
