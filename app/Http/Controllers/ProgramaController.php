@@ -1,77 +1,81 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\Clase\StoreRequest;
-use App\Http\Requests\Clase\UpdateRequest;
+
+use App\Http\Requests\Programa\StoreRequest;
+use App\Http\Requests\Programa\UpdateRequest;
 use App\Programa;
 use App\Sector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-class ClaseController extends Controller
+
+class ProgramaController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.clases.store', 
-            'permission:admin.clases.index',
-            'permission:admin.clases.create', 
-            'permission:admin.clases.update',
-            'permission:admin.clases.destroy',
-            'permission:admin.clases.edit'
-            ]);
+            'permission:admin.programas.store',
+            'permission:admin.programas.index',
+            'permission:admin.programas.create',
+            'permission:admin.programas.update',
+            'permission:admin.programas.destroy',
+            'permission:admin.programas.edit'
+        ]);
     }
     public function index()
     {
-        $clases = Clase::orderBy('id', 'DESC')->paginate(10);
-       return view ('admin.clases.index',compact('clases'));
+        $programas = Programa::orderBy('id', 'DESC')->paginate(10);
+        return view('admin.programas.index', compact('programas'));
     }
 
-    
+
     public function create()
     {
-        $familias = Familia::all();
-        return view ('admin.clases.create',compact('familias'));
+        $sectores = Programa::all();
+        return view('admin.programas.create', compact('sectores'));
     }
 
-    
+
     public function store(StoreRequest $request)
     {
-        Clase::create([
-            'detclase'=>$request->detclase,
-            'slug'=> Str::slug($request->detclase , '-'),
-            'familia_id'=>$request->familia_id,
+        Programa::create([
+            'codProg' => $request->codProg,
+            'nomProg' => $request->nomProg,
+            'slug' => Str::slug($request->codProg, '-'),
+            'fK_sector' => $request->fK_sector,
         ]);
-        return redirect()->route('admin.clases.index')->with('flash','registrado');
+        return redirect()->route('admin.programas.index')->with('flash', 'registrado');
     }
 
-    // public function show(Clase $clase)
-    // {
-    //     return view ('admin.clases.show',compact('clase'));
-    // }
-
-    
-    public function edit(Clase $clase)
+    public function show(Programa $programa)
     {
-        $familias = Familia::get();
-        return view ('admin.clases.edit',compact('clase','familias'));
+        return view('admin.programas.show', compact('programa'));
     }
 
-    
-    public function update(UpdateRequest $request, Clase $clase)
+
+    public function edit(Programa $programa)
     {
-        $clase->update([
-            'detclase'=>$request->detclase,
-            'slug'=> Str::slug($request->detclase , '-'),
-            'familia_id'=>$request->familia_id,
+        $sectores = Sector::get();
+        return view('admin.programas.edit', compact('programa', 'sectores'));
+    }
+
+
+    public function update(UpdateRequest $request, Programa $programa)
+    {
+        $programa->update([
+            'codProg' => $request->codProg,
+            'nomProg' => $request->nomProg,
+            'slug' => Str::slug($request->codProg, '-'),
+            'fK_sector' => $request->fK_sector,
         ]);
-        return redirect()->route('admin.clases.index')->with('flash','actualizado');
+        return redirect()->route('admin.programas.index')->with('flash', 'actualizado');
     }
-    
-    public function destroy(Clase $clase)
+
+    public function destroy(Programa $programa)
     {
-        $clase->delete();
-        return redirect()->route('admin.clases.index')->with('flash','eliminado');
+        $programa->delete();
+        return redirect()->route('admin.programas.index')->with('flash', 'eliminado');
     }
 }

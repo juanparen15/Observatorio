@@ -2,11 +2,12 @@
 
 namespace App\Imports;
 
-use App\Familia;
+use App\TipoProducto;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
 
-class FamiliaImport implements ToModel
+
+class TipoProductomport implements ToModel
 {
     /**
     * @param array $row
@@ -15,11 +16,10 @@ class FamiliaImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Familia([
-            'segmento_id'=>$row[0],
-            'id'=>$row[1],
-            'detfamilia'=>$row[2],
-            'slug'=> Str::slug($row[2]),
+        return new TipoProducto([
+            'id'=>$row[0],
+            'nomProd'=>$row[1],
+            'slug'=> Str::slug($row[0])
         ]);
     }
 }

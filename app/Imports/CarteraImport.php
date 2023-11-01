@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\Estadovigencia;
+use App\Cartera;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
 
-class EstadovigenciaImport implements ToModel
+class CarteraImport implements ToModel
 {
     /**
     * @param array $row
@@ -15,10 +15,11 @@ class EstadovigenciaImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Estadovigencia([
-            'id'=>$row[0],
-            'detestadovigencia'=>$row[1],
-            'slug'=> Str::slug($row[1]),
+        return new Cartera([
+            'id'=> $row[0],
+            'codC'=> $row[1],
+            'nomCar'=> $row[2],
+            'slug'=> Str::slug($row[0])
         ]);
     }
 }

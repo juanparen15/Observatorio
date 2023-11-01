@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Clase;
+namespace App\Http\Requests\Programa;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'detclase' => 'required',
-            'familia_id'=>'required',
+            'codProg' => 'required',
+            'nomProg' => 'required',
+            'fK_sector' => 'required',
         ];
     }
 }

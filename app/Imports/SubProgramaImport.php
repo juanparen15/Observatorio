@@ -2,12 +2,11 @@
 
 namespace App\Imports;
 
-use App\Area;
+
+use App\SubPrograma;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
-
-
-class AreasImport implements ToModel
+class SubProgramaImport implements ToModel
 {
     /**
     * @param array $row
@@ -16,11 +15,12 @@ class AreasImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Area([
-            'id' => $row[0],
-            'dependencia_id' => $row[1],
-            'nomarea' => $row[2],
-            'slug'=> Str::slug($row[2])
+        return new SubPrograma([
+            'id'=>$row[0],
+            'fK_programa'=>$row[1],
+            'codSP'=>$row[2],
+            'nomSP'=>$row[3],
+            'slug'=> Str::slug($row[0]),
         ]);
     }
 }

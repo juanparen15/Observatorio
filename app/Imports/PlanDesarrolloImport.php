@@ -2,10 +2,12 @@
 
 namespace App\Imports;
 
-use App\Modalidade;
+use App\PlanDesarrollo;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
-class ModalidadeImport implements ToModel
+
+
+class PlanDesarrolloImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,10 +16,11 @@ class ModalidadeImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Modalidade([
+        return new PlanDesarrollo([
             'id'=>$row[0],
-            'detmodalidad'=>$row[1],
-            'slug'=> Str::slug($row[1]),
+            'anno'=>$row[1],
+            'nomPD'=>$row[2],
+            'slug'=> Str::slug($row[0])
         ]);
     }
 }

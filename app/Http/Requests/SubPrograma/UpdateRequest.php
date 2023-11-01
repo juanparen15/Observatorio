@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Producto;
+namespace App\Http\Requests\SubPrograma;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'detproducto' => 'required',
-            'clase_id'=>'required',
+            'codSP' => 'required',
+            'nomSP' => 'required',
+            'fK_programa'=>'required'
         ];
     }
 }

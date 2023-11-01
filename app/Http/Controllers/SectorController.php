@@ -5,73 +5,75 @@ namespace App\Http\Controllers;
 use App\Sector;
 use App\PlanDesarrollo;
 use Illuminate\Http\Request;
-use App\Http\Requests\familia\StoreRequest;
-use App\Http\Requests\familia\UpdateRequest;
+use App\Http\Requests\sector\StoreRequest;
+use App\Http\Requests\sector\UpdateRequest;
 use Illuminate\Support\Str;
+
 class SectorController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.familias.index',
-            'permission:admin.familias.store',
-            'permission:admin.familias.create',
-            'permission:admin.familias.update',
-            'permission:admin.familias.destroy',
-            'permission:admin.familias.edit' 
-            ]);
+            'permission:admin.sectores.index',
+            'permission:admin.sectores.store',
+            'permission:admin.sectores.create',
+            'permission:admin.sectores.update',
+            'permission:admin.sectores.destroy',
+            'permission:admin.sectores.edit'
+        ]);
     }
     public function index()
     {
-        $familias = Familia::get();
-        return view ('admin.familias.index',compact('familias'));
+        $sectores = Sector::get();
+        return view('admin.sectores.index', compact('sectores'));
     }
-    
+
     public function create()
     {
-        $segmentos = Segmento::get();
-        return view ('admin.familias.create',compact('segmentos'));
+        $planesdesarrollo = PlanDesarrollo::get();
+        return view('admin.sectores.create', compact('planesdesarrollo'));
     }
-    
+
     public function store(StoreRequest $request)
     {
-        Familia::create([
-            'detfamilia'=> $request->detfamilia,
-            'slug'=> Str::slug($request->detfamilia , '-'),
-            'segmento_id'=> $request->segmento_id
+        Sector::create([
+            'codS' => $request->codS,
+            'nomS' => $request->nomS,
+            'slug' => Str::slug($request->codS, '-'),
+            'fK_pDes' => $request->fK_pDes
         ]);
-        return redirect()->route('admin.familias.index')->with('flash','registrado');
+        return redirect()->route('admin.sectores.index')->with('flash', 'registrado');
     }
 
-    
-    public function show(Familia $familia)
+
+    public function show(Sector $sector)
     {
-        return view ('admin.familias.show',compact('familia'));
-    }
-   
-    public function edit(Familia $subserie)
-    {
-        $segmentos = Segmento::get();
-        return view ('admin.familias.edit',compact('subserie','segmentos'));
+        return view('admin.sectores.show', compact('sector'));
     }
 
-    
-    public function update(UpdateRequest $request, Familia $subserie)
+    public function edit(Sector $sector)
     {
-        $subserie->update([
-            'detfamilia'=> $request->detfamilia,
-            'slug'=> Str::slug($request->detfamilia , '-'),
-            'segmento_id'=> $request->segmento_id
+        $planesdesarrollo = PlanDesarrollo::get();
+        return view('admin.sectores.edit', compact('sector', 'planesdesarrollo'));
+    }
+
+
+    public function update(UpdateRequest $request, Sector $sector)
+    {
+        $sector->update([
+            'codS' => $request->codS,
+            'nomS' => $request->nomS,
+            'slug' => Str::slug($request->codS, '-'),
+            'fK_pDes' => $request->fK_pDes
         ]);
-        return redirect()->route('admin.familias.index')->with('flash','actualizado');
+        return redirect()->route('admin.sectores.index')->with('flash', 'actualizado');
     }
 
-   
-    public function destroy(Familia $subserie)
+    public function destroy(Sector $sector)
     {
-        $subserie->delete();
-        return redirect()->route('admin.familias.index')->with('flash','eliminado');
+        $sector->delete();
+        return redirect()->route('admin.sectores.index')->with('flash', 'eliminado');
     }
 }

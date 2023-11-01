@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\Fuente;
+use App\Programa;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
 
-class FuenteImport implements ToModel
+class ProgramaImport implements ToModel
 {
     /**
     * @param array $row
@@ -15,10 +15,12 @@ class FuenteImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Fuente([
+        return new Programa([
             'id'=>$row[0],
-            'detfuente'=>$row[1],
-            'slug'=> Str::slug($row[1]),
+            'fK_sector'=>$row[1],
+            'codProg'=>$row[2],
+            'nomProg'=>$row[3],
+            'slug'=> Str::slug($row[0])
         ]);
     }
 }

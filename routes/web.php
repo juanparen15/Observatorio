@@ -61,9 +61,9 @@ Route::get('importar_datos', function () {
     return view('admin.importar_datos');
 })->name('importar_datos');
 Route::get('productos/{slug}/destroy', 'ProductoController@destroy')->name('admin.productos.destroy');
-Route::resource('serie', 'SegmentoController')->except([
+Route::resource('plan', 'PlanDesarrolloController')->except([
     'show',
-])->names('admin.segmentos');
+])->names('admin.planesdesarrollo');
 Route::resource('requipoais', 'RequipoaiController')->only([
     'index',
 ])->names('admin.tipoadquicsiciones');
@@ -94,7 +94,7 @@ Route::post('areas_import', 'ImportExcelController@areas_import')->name('areas.i
 Route::post('dependencias_import', 'ImportExcelController@dependencias_import')->name('dependencias.import.excel');
 Route::post('estado_vigencia_import', 'ImportExcelController@estado_vigencia_import')->name('estado_vigencia.import.excel');
 Route::post('familias_import', 'ImportExcelController@familias_import')->name('familias.import.excel');
-Route::post('segmento_import', 'ImportExcelController@segmento_import')->name('segmento.import.excel');
+Route::post('plandesarrollo_import', 'ImportExcelController@plandesarrollo_import')->name('plandesarrollo.import.excel');
 Route::post('clases_import', 'ImportExcelController@clases_import')->name('clases.import.excel');
 Route::post('fuentes_import', 'ImportExcelController@fuentes_import')->name('fuentes.import.excel');
 Route::post('modalidades_import', 'ImportExcelController@modalidades_import')->name('modalidades.import.excel');

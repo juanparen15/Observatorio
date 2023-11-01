@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Programa;
 use App\SubPrograma;
 use Illuminate\Http\Request;
-use App\Http\Requests\Producto\StoreRequest;
-use App\Http\Requests\Producto\UpdateRequest;
+use App\Http\Requests\SubPrograma\StoreRequest;
+use App\Http\Requests\SubPrograma\UpdateRequest;
 use Illuminate\Support\Str;
 
 class SubProgramaController extends Controller
@@ -15,63 +15,70 @@ class SubProgramaController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.productos.store',
-            'permission:admin.productos.index',
-            'permission:admin.productos.create', 
-            'permission:admin.productos.update',
-            'permission:admin.productos.destroy',
-            'permission:admin.productos.edit'
-            ]); 
+            'permission:admin.subprogramas.store',
+            'permission:admin.subprogramas.index',
+            'permission:admin.subprogramas.create',
+            'permission:admin.subprogramas.update',
+            'permission:admin.subprogramas.destroy',
+            'permission:admin.subprogramas.edit'
+        ]);
     }
     public function index()
     {
-        
-        return view ('admin.productos.index');
+
+        return view('admin.subprogramas.index');
     }
 
     public function create()
     {
-        $clases = Clase::get();
-        return view ('admin.productos.create',compact('clases'));
+        $programas = Programa::get();
+        return view('admin.subprogramas.create', compact('programas'));
     }
-    
+
     public function store(StoreRequest $request)
     {
-        Producto::create([
-            'detproducto'=>$request->detproducto,
-            'slug'=> Str::slug($request->detproducto , '-'),
-            'clase_id'=>$request->clase_id
+        SubPrograma::create([
+            'codSP' => $request->codSP,
+            'nomSP' => $request->nomSP,
+            'slug' => Str::slug($request->codSP, '-'),
+            'fK_programa' => $request->fK_programa
         ]);
-        return redirect()->route('admin.productos.index')->with('flash','registrado');
+        return redirect()->route('admin.subprogramas.index')->with('flash', 'registrado');
     }
-//     actualizado
-// 
-// 
-    public function show(Producto $producto)
+    //     actualizado
+    // 
+    // 
+    public function show(SubPrograma $subprograma)
     {
-        return view ('admin.productos.show',compact('producto'));
+        return view('admin.subprogramas.show', compact('subprograma'));
     }
-    
-    public function edit(Producto $producto)
+
+    public function edit(SubPrograma $subprograma)
     {
-        $clases = Clase::get();
-        return view ('admin.productos.edit',compact('producto','clases'));
+        $programas = Programa::get();
+        return view('admin.subprogramas.edit', compact('subprograma', 'programas'));
     }
-    
-    public function update(UpdateRequest $request, Producto $producto)
+
+    public function update(UpdateRequest $request, SubPrograma $subprograma)
     {
-        $producto->update([
-            'detproducto'=>$request->detproducto,
-            'slug'=> Str::slug($request->detproducto , '-'),
-            'clase_id'=>$request->clase_id
+        $subprograma->update([
+            'codSP' => $request->codSP,
+            'nomSP' => $request->nomSP,
+            'slug' => Str::slug($request->codSP, '-'),
+            'fK_programa' => $request->fK_programa
         ]);
-        return redirect()->route('admin.productos.index')->with('flash','actualizado');
+        return redirect()->route('admin.subprogramas.index')->with('flash', 'actualizado');
     }
-    
-    public function destroy($slug)
+
+    // public function destroy($slug)
+    // {
+    //     $subprograma = SubPrograma::where('slug', $slug)->first();
+    //     $subprograma->delete();
+    //     return redirect()->route('admin.subprogramas.index')->with('flash', 'eliminado');
+    // }
+    public function destroy(SubPrograma $subprograma)
     {
-        $producto = Producto::where('slug', $slug)->first();
-        $producto->delete();
-        return redirect()->route('admin.productos.index')->with('flash','eliminado');
+        $subprograma->delete();
+        return redirect()->route('admin.subprogramas.index')->with('flash', 'eliminado');
     }
 }

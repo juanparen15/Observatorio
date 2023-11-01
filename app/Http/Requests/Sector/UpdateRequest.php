@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Familia;
+namespace App\Http\Requests\Sector;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'detfamilia' => 'required',
-            'segmento_id'=>'required'
+            'codS' => 'required',
+            'nomS' => 'required',
+            'fK_pDes' => 'required'
         ];
     }
 }

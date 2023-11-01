@@ -2,11 +2,12 @@
 
 namespace App\Imports;
 
-use App\Clase;
+use App\UnidadMedida;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
 
-class ClaseImport implements ToModel
+
+class UnidadMedidaImport implements ToModel
 {
     /**
     * @param array $row
@@ -15,11 +16,10 @@ class ClaseImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Clase([
-            'familia_id'=>$row[0],
-            'id'=>$row[1],
-            'detclase'=>$row[2],
-            'slug'=> Str::slug($row[2])
+        return new UnidadMedida([
+            'id'=>$row[0],
+            'nomUMed'=>$row[1],
+            'slug'=> Str::slug($row[0])
         ]);
     }
 }

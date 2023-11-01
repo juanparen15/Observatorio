@@ -2,12 +2,12 @@
 
 namespace App\Imports;
 
-use App\Segmento;
+use App\Area;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Str;
 
 
-class SegmentoImport implements ToModel
+class AreaImport implements ToModel
 {
     /**
     * @param array $row
@@ -16,10 +16,12 @@ class SegmentoImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Segmento([
-            'id'=>$row[0],
-            'detsegmento'=>$row[1],
-            'slug'=> Str::slug($row[1]),
+        return new Area([
+            'id' => $row[0],
+            'fK_car' => $row[1],
+            'codA' => $row[2],
+            'nomA' => $row[3],
+            'slug'=> Str::slug($row[0])
         ]);
     }
 }
