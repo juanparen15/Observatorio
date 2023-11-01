@@ -3,39 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Area;
-use App\Clase;
-use App\Familia;
 use App\Producto;
-use App\Tipoproceso;
-use App\Planadquisicione;
+use App\Programa;
+use App\Sector;
+use App\SubPrograma;
 use Illuminate\Http\Request;
 
 class AjaxController extends Controller
 {
-    public function obtener_familias(Request $request)
+    public function obtener_sectores(Request $request)
     {
         if ($request->ajax()) {
-            $familias = Familia::where('segmento_id', $request->segmento_id)->get();
-            return response()->json($familias);
+            $sectores = Sector::where('fK_pDes', $request->fK_pDes)->get();
+            return response()->json($sectores);
         }
     }
-    public function obtener_codigo(Request $request)
+    public function obtener_programas(Request $request)
     {
         if ($request->ajax()) {
-            $area = Area::where('area_id', $request->area_id)->get();
-            return response()->json($area);
+            $programas = Programa::where('fK_sector', $request->fK_sector)->get();
+            return response()->json($programas);
         }
     }
-    // public function obtener_clases(Request $request){
-    //     if ($request->ajax()) {
-    //         $clases = Clase::where('familia_id', $request->familia_id)->get();
-    //         return response()->json($clases);
-    //     }
-    // }
-    // public function obtener_productos(Request $request){
-    //     if ($request->ajax()) {
-    //         $productos = Producto::where('clase_id', $request->clase_id)->get();
-    //         return response()->json($productos);
-    //     }
-    // }
+    public function obtener_subprogramas(Request $request)
+    {
+        if ($request->ajax()) {
+            $subprogramas = SubPrograma::where('fK_programa', $request->fK_programa)->get();
+            return response()->json($subprogramas);
+        }
+    }
+    public function obtener_productos(Request $request)
+    {
+        if ($request->ajax()) {
+            $productos = Producto::where('fK_sProg', $request->fK_sProg)->get();
+            return response()->json($productos);
+        }
+    }
 }

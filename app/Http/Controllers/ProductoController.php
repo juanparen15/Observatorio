@@ -53,7 +53,7 @@ class ProductoController extends Controller
     public function indexByArea($areaId)
     {
         $areas = Area::findOrFail($areaId);
-        $productos = Producto::where('area_id', $areaId)->get();
+        $productos = Producto::where('fK_area', $areaId)->get();
 
         return view('admin.productos.index', compact('productos', 'areas'));
     }

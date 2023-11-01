@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'apellido',
         'telefono',
         'documento',
-        'areas_id'
+        'fK_area'
     ];
 
     /**
@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
     // Relacion Uno a Muchos (Inversa)
     public function area()
     {
-        return $this->belongsTo(Area::class, 'areas_id');
+        return $this->belongsTo(Area::class, 'fK_area');
     }
 }
 

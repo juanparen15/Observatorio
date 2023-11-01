@@ -23,9 +23,4 @@ class SubPrograma extends Model
     public function productos(){
         return $this->hasMany(Producto::class);
     }
-    // //Relacion Muchos a Muchos
-
-    // public function planadquisiciones(){
-    //     return $this->belongsToMany(Planadquisicione::class);
-    // }
 }

@@ -11,19 +11,19 @@ class Producto extends Model
         'fK_sProg',
         'fK_tProd',
         'fK_uMed',
-        'fK_area',
+        'fK_user',
         'codProd',
         'nomProd',
         'iB',
         'mCuatrienia',
         'slug'
     ];
-    protected $with =[
+    protected $with = [
         'subprograma',
         'tipoproducto',
         'unidadmedida',
         'area',
-        // 'user'
+        'user'
     ];
 
     public function getRouteKeyName()
@@ -31,11 +31,11 @@ class Producto extends Model
         return "slug";
     }
 
-    // //Relacion Uno a Muchos (Inversa)
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    //Relacion Uno a Muchos (Inversa)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     //Relacion Uno a Muchos (Inversa)
     public function subprograma()
@@ -58,30 +58,6 @@ class Producto extends Model
     //Relacion Uno a Muchos (Inversa)
     public function area()
     {
-        return $this->belongsTo(Area::class, 'area_id', 'id');
+        return $this->belongsTo(Area::class, 'fK_area', 'id');
     }
-
-    // //Relacion Uno a Muchos (Inversa)
-    // public function segmento()
-    // {
-    //     return $this->belongsTo(Segmento::class);
-    // }
-
-    // //Relacion Uno a Muchos (Inversa)
-    // public function modalidad()
-    // {
-    //     return $this->belongsTo(Modalidade::class);
-    // }
-
-    // //Relacion Uno a Muchos (Inversa)
-    // public function familias()
-    // {
-    //     return $this->belongsTo(Familia::class);
-    // }
-
-    //Relacion Muchos a Muchos
-
-    // public function detalleplanadquisiciones(){
-    //     return $this->hasMany(Detalleplanadquisicione::class);
-    // }
 }
