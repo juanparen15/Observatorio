@@ -2,15 +2,17 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Producto;
-use App\Clase;
+use App\Programa;
+use App\SubPrograma;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
-$factory->define(Producto::class, function (Faker $faker) {
-    $detproducto = $this->faker->unique()->word(20);
-    return [
-      'detproducto'=> $detproducto,
-        'slug'=> Str::slug($detproducto),
-        'clase_id'=> Clase::all()->random()->id        
-    ];
+
+$factory->define(SubPrograma::class, function (Faker $faker) {
+  $nomSP = $this->faker->unique()->word(20);
+  return [
+    'codSP'=>$this->faker->text(40),
+    'nomSP' => $nomSP,
+    'slug' => Str::slug($nomSP),
+    'fK_programa' => Programa::all()->random()->id
+  ];
 });
