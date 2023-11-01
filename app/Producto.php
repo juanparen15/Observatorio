@@ -22,7 +22,8 @@ class Producto extends Model
         'subprograma',
         'tipoproducto',
         'unidadmedida',
-        'area'
+        'area',
+        // 'user'
     ];
 
     public function getRouteKeyName()

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Sector;
 use App\PlanDesarrollo;
 use Illuminate\Http\Request;
-use App\Http\Requests\sector\StoreRequest;
-use App\Http\Requests\sector\UpdateRequest;
+use App\Http\Requests\Sector\StoreRequest;
+use App\Http\Requests\Sector\UpdateRequest;
 use Illuminate\Support\Str;
 
 class SectorController extends Controller

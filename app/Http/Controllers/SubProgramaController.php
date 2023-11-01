@@ -23,6 +23,8 @@ class SubProgramaController extends Controller
             'permission:admin.subprogramas.edit'
         ]);
     }
+
+    
     public function index()
     {
 
