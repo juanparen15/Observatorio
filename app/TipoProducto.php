@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Segmento extends Model
+class TipoProducto extends Model
 {
     public $incrementing = false;
-    protected $fillable= ['id','detsegmento','slug'];
+    protected $fillable= ['id','nomProd','slug'];
 
     public function getRouteKeyName() {
       return "slug";
@@ -15,7 +15,7 @@ class Segmento extends Model
     
 
      //Relacion Uno a Muchos 
-     public function familia(){
-        return $this->hasMany(Familia::class);
+     public function productos(){
+        return $this->hasMany(Producto::class);
     }
 }

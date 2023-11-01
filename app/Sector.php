@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Familia extends Model
+class Sector extends Model
 {
     public $incrementing = false;
-    protected $fillable= ['id','segmento_id','detfamilia','slug'];
+    protected $fillable= ['id','fK_pDes','codS', 'nomS', 'slug'];
 
     public function getRouteKeyName() {
       return "slug";
     }
 
    //Relacion Uno a Muchos (Inversa)
-   public function segmento(){
-      return $this->belongsTo(Segmento::class);
+   public function planDesarrollo(){
+      return $this->belongsTo(PlanDesarrollo::class);
     }
 
    //Relacion Uno a Muchos 

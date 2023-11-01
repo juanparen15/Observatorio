@@ -2,12 +2,13 @@
 
 namespace App\Exports;
 
-use App\Planadquisicione;
+
+use App\Producto;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
-class ObservatorioAllExport implements FromView
+class ProductoAllExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -19,12 +20,12 @@ class ObservatorioAllExport implements FromView
         
 
         if (auth()->user()->hasRole('Admin')) {
-            $planes = Planadquisicione::all();
+            $planes = Producto::all();
         } else {
-            $planes = Planadquisicione::where('user_id', auth()->user()->id)->get();
+            $planes = Producto::where('user_id', auth()->user()->id)->get();
         }
-        return view('admin.planadquisiciones.planadquisicione_all', [
-            'planadquisiciones' => $planes
+        return view('admin.productio.producto_all', [
+            'productos' => $planes
         ]);
     }
 

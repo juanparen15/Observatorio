@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Dependencia extends Model
+class Cartera extends Model
 {
     public $incrementing = false;
-    protected $fillable= ['id','nomdependencia','slug'];
+    protected $fillable= ['id','codC','nomCar', 'slug'];
 
     public function getRouteKeyName() {
       return "slug";

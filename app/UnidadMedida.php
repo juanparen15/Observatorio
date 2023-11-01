@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PlanDesarrollo extends Model
+class UnidadMedida extends Model
 {
     public $incrementing = false;
-    protected $fillable= ['id','anno','nomPD','slug'];
+    protected $fillable= ['id','nomUMed','slug'];
 
     public function getRouteKeyName() {
       return "slug";
@@ -15,7 +15,7 @@ class PlanDesarrollo extends Model
     
 
      //Relacion Uno a Muchos 
-     public function sector(){
-        return $this->hasMany(Sector::class);
+     public function productos(){
+        return $this->hasMany(Producto::class);
     }
 }
