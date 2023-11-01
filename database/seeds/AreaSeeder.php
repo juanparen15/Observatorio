@@ -10,67 +10,78 @@ class AreaSeeder extends Seeder
     {      
         //factory(Area::class)->times(10)->create();
         Area::create([
-            'nomarea'=>'Área de Almacén',
+            'codA'=>'',
+            'nomA'=>'Área de Almacén',
             'slug'=>'Área de Almacén',
-            'dependencia_id'=>'5',
+            'fK_car'=>'5',
             ]);
     
             Area::create([
-                'nomarea'=>'Área De Sistemas',
+                'codA'=>'',
+                'nomA'=>'Área De Sistemas',
                 'slug'=>'Área De Sistemas',
-                'dependencia_id'=>'5',
+                'fK_car'=>'5',
             ]);
     
             Area::create([
-                'nomarea'=>'Área De Personal',
+                'codA'=>'',
+                'nomA'=>'Área De Personal',
                 'slug'=>'Área De Personal',
-                'dependencia_id'=>'5',
+                'fK_car'=>'5',
             ]);
     
             Area::create([
-                'nomarea'=>'Área De Archivo',
+                'codA'=>'',
+                'nomA'=>'Área De Archivo',
                 'slug'=>'Área De Archivo',
-                'dependencia_id'=>'5',
+                'fK_car'=>'5',
             ]);
     
             Area::create([
-                'nomarea'=>'Área De Vivienda',
+                'codA'=>'',
+                'nomA'=>'Área De Vivienda',
                 'slug'=>'Área De Vivienda',
-                'dependencia_id'=>'8',
+                'fK_car'=>'8',
             ]);
     
             Area::create([
-                'nomarea'=>'Área De Salud',
+                'codA'=>'',
+                'nomA'=>'Área De Salud',
                 'slug'=>'Área De Salud',
-                'dependencia_id'=>'4',
+                'fK_car'=>'4',
             ]);
             
             Area::create([
-                'nomarea'=>'Comisaria De Familia',
+                'codA'=>'',
+                'nomA'=>'Comisaria De Familia',
                 'slug'=>'Comisaria De Familia',
-                'dependencia_id'=>'3',
+                'fK_car'=>'3',
             ]);
     
             Area::create([
-                'nomarea'=>'Área De Cultura',
+                'codA'=>'',
+                'nomA'=>'Área De Cultura',
                 'slug'=>'Área De Cultura',
-                'dependencia_id'=>'4',
+                'fK_car'=>'4',
             ]);
     
             Area::create([
-                'nomarea'=>'Cuerpo De Bomberos',
+                'codA'=>'',
+                'nomA'=>'Cuerpo De Bomberos',
                 'slug'=>'Cuerpo De Bomberos',
-                'dependencia_id'=>'3',
+                'fK_car'=>'3',
             ]);      
     
             Area::create([
-                'nomarea'=>'Biblioteca Pública Municipal',
+                'codA'=>'',
+                'nomA'=>'Biblioteca Pública Municipal',
                 'slug'=>'Biblioteca Pública Municipal',
-                'dependencia_id'=>'4',
+                'fK_car'=>'4',
             ]);
             
             Area::create([
-                'nomarea'=>'No Aplica',
+                'codA'=>'',
+                'nomA'=>'No Aplica',
                 'slug'=>'No Aplica',
                 //'dependencia_id'=>
             ]);

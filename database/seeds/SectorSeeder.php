@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Sector;
+use Illuminate\Support\Str;
 
-class DetalleplanadquisicioneSeeder extends Seeder
+class SectorSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +13,7 @@ class DetalleplanadquisicioneSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //factory(Sector::class)->times(10)->create();        
+
     }
 }
