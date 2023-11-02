@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Editar Serie')
+@section('title','Editar producto')
 @section('style')
 <!-- Select2 -->
 {!! Html::style('adminlte/plugins/select2/css/select2.min.css') !!}
@@ -13,13 +13,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editar Serie</h1>
+            <h1>Editar producto</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-              <li class="breadcrumb-item"><a href="{{route('admin.segmentos.index')}}">Lista Series Documentales</a></li>
-              <li class="breadcrumb-item active">Editar Serie</li>
+              <li class="breadcrumb-item"><a href="{{route('admin.productos.index')}}">Productos</a></li>
+              <li class="breadcrumb-item active">Editar producto</li>
             </ol>
           </div>
         </div>
@@ -28,7 +28,7 @@
 
     <!-- Main content -->
     <section class="content">
-        {!! Form::model($serie, ['route'=>['admin.segmentos.update',$serie],'method'=>'PUT']) !!}
+        {!! Form::model($producto, ['route'=>['admin.productos.update',$producto],'method'=>'PUT']) !!}
         <div class="card card-primary">
             {{--  <div class="card-header">
               <h3 class="card-title">General</h3>
@@ -36,13 +36,33 @@
             <div class="card-body">
 
 
+  
               <div class="form-group">
-                {!! Form::label('detsegmento','NOMBRE SERIE') !!}
-                {!! Form::text('detsegmento',null,['class' => 'form-control', 'placeholder' =>'Ingrese el Nombre de la Serie Documental']) !!}
-                 @error('detsegmento')
-                     <span class="text-danger">{{$message}}</span>
+                {!! Form::label('detproducto','NOMBRE DEL PRODUCTO') !!}
+                {!! Form::text('detproducto',null,['class' => 'form-control', 'placeholder' =>'Ingrese el nombre del clase']) !!}
+                 @error('detproducto')
+                     <small class="text-danger">{{$message}}</small>
                  @enderror
-             </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="clase_id">CLASE</label>
+                <select class="select2 @error('clase_id') is-invalid @enderror" name="clase_id" id="clase_id" style="width: 100%;">
+
+                    <option disabled selected>Selecciona un clase</option>
+                    @foreach ($clases as $clase)
+                        <option value="{{ $clase->id }}"
+                        {{ old('clase_id', $producto->clase_id) == $clase->id ? 'selected' : ''}}
+                        >{{ $clase->detclase }}</option>
+                    @endforeach
+                </select>
+                @error('clase_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
              
 
              

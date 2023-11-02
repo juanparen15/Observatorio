@@ -30,13 +30,13 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>{{ $adquisiciones1 }}</h3>
-                                    <p>Inventario</p>
+                                    <h3>{{ $productos }}</h3>
+                                    <p>Productos</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
-                                <a href="{{ route('planadquisiciones.index') }}" class="small-box-footer">Ver Todo <i
+                                <a href="{{ route('productos.index') }}" class="small-box-footer">Ver Todo <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -54,71 +54,71 @@
                             </div>
                         </div>
                         <!-- ./col -->
-                        <!-- <div class="col-lg-3 col-6">
-                                                                                                                                                                                             small box
-                                                                                                                                                                                            <div class="small-box bg-success">
-                                                                                                                                                                                                <div class="inner">
-                                                                                                                                                                                                    <h3>{{ $products }}</h3>
-                                                                                                                                                                                                    <p>Productos</p>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <div class="icon">
-                                                                                                                                                                                                    <i class="fab fa-bitcoin"></i>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <a href="{{ route('admin.productos.index') }}" class="small-box-footer">Ver Todo <i class="fas fa-arrow-circle-right"></i></a>
-                                                                                                                                                                                            </div>
-                                                                                                                                                                                        </div> -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>{{ $programas }}</h3>
+                                    <p>Programas</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <a href="{{ route('admin.programas.index') }}" class="small-box-footer">Ver Todo <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
                         <!-- ./col -->
-                        <!-- <div class="col-lg-3 col-6">
-                                                                                                                                                                                             small box --
-                                                                                                                                                                                            <div class="small-box bg-warning">
-                                                                                                                                                                                                <div class="inner">
-                                                                                                                                                                                                    <h3>{{ $clases }}</h3>
-                                                                                                                                                                                                    <p>Clases</p>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <div class="icon">
-                                                                                                                                                                                                    <i class="fas fa-calendar-alt"></i>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <a href="{{ route('admin.clases.index') }}" class="small-box-footer">Ver Todo <i class="fas fa-arrow-circle-right"></i></a>
-                                                                                                                                                                                            </div>
-                                                                                                                                                                                        </div> -->
-                        <!-- <div class="col-lg-3 col-6">
-                                                                                                                                                                                             small box
-                                                                                                                                                                                            <div class="small-box bg-dark">
-                                                                                                                                                                                                <div class="inner">
-                                                                                                                                                                                                    <h3>{{ $familias }}</h3>
-                                                                                                                                                                                                    <p>Familias</p>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <div class="icon">
-                                                                                                                                                                                                    <i class="fas fa-users"></i>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <a href="{{ route('admin.familias.index') }}" class="small-box-footer">Ver Todo <i class="fas fa-arrow-circle-right"></i></a>
-                                                                                                                                                                                            </div>
-                                                                                                                                                                                        </div> -->
-                        <!-- <div class="col-lg-3 col-6">
-                                                                                                                                                                                             small box
-                                                                                                                                                                                            <div class="small-box bg-purple">
-                                                                                                                                                                                                <div class="inner">
-                                                                                                                                                                                                    <h3>{{ $segmentos }}</h3>
-                                                                                                                                                                                                    <p>Segmentos</p>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <div class="icon">
-                                                                                                                                                                                                    <i class="fas fa-chess-king"></i>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                <a href="{{ route('admin.segmentos.index') }}" class="small-box-footer">Ver Todo <i class="fas fa-arrow-circle-right"></i></a>
-                                                                                                                                                                                            </div>
-                                                                                                                                                                                        </div> -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>{{ $subprogramas }}</h3>
+                                    <p>Sub Programas</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <a href="{{ route('admin.subprogramas.index') }}" class="small-box-footer">Ver Todo <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-dark">
+                                <div class="inner">
+                                    <h3>{{ $sectores }}</h3>
+                                    <p>Sectores</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <a href="{{ route('admin.sectores.index') }}" class="small-box-footer">Ver Todo <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-purple">
+                                <div class="inner">
+                                    <h3>{{ $planesdesarrollo }}</h3>
+                                    <p>Plan de Desarrollo</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-chess-king"></i>
+                                </div>
+                                <a href="{{ route('admin.planesdesarrollo.index') }}" class="small-box-footer">Ver Todo <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-maroon">
                                 <div class="inner">
-                                    <h3>{{ $dependencias }}</h3>
-                                    <p>Dependencias</p>
+                                    <h3>{{ $carteras }}</h3>
+                                    <p>Carteras</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fab fa-xbox"></i>
                                 </div>
-                                <a href="{{ route('admin.dependencias.index') }}" class="small-box-footer">Ver Todo <i
+                                <a href="{{ route('admin.carteras.index') }}" class="small-box-footer">Ver Todo <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -147,26 +147,26 @@
                                     <i class="fas fa-chart-pie mr-1"></i>
                                     Inventario
                                 </h3>
-                                @can('planadquisiciones.export')
+                                @can('productos.export')
                                     <div class="card-tools">
                                         <ul class="nav nav-pills ml-auto">
                                             <li class="nav-item">
-                                                <a class="btn btn-success" href="{{ route('planadquisiciones.export') }}">
+                                                <a class="btn btn-success" href="{{ route('productos.export') }}">
                                                     <i class="far fa-file-excel"></i> Exportar Todo</a>
                                             </li>
                                         </ul>
                                     </div>
                                 @endcan
                             </div>
-                            <figure class="highcharts-figure">
+                            {{-- <figure class="highcharts-figure">
                                 <div id="container"></div>
                             </figure>
                             <figure class="highcharts-figure">
                                 <div id="containerTime"></div>
                             </figure>
                             <div class="card-body">
-                                <canvas id="planes"></canvas>
-                            </div>
+                                <canvas id="produc"></canvas>
+                            </div> --}}
                             {{-- <figure class="highcharts-figure">
                                 <div id="containerLabel"></div>
                             </figure> --}}
@@ -238,7 +238,7 @@
 
 
 
-        <script src="https://code.highcharts.com/highcharts.js"></script>
+        {{-- <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/timeline.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
@@ -397,5 +397,5 @@
                     }
                 });
             });
-        </script>
+        </script> --}}
     @endsection

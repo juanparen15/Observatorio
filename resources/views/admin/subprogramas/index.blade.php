@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Lista Segmentos')
+@section('title','Lista de Productos')
 @section('style')
 <!-- SweetAlert2 -->
 {!! Html::style('adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') !!}
@@ -15,12 +15,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    {{--  <h1 class="m-0">Lista Series Documentales del sistema</h1>  --}}
+                    {{--  <h1 class="m-0">Lista de Productos del sistema</h1>  --}}
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                        <li class="breadcrumb-item active">Lista Series Documentales</li>
+                        <li class="breadcrumb-item active">Lista de Productos</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,11 +33,11 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Lista Series Documentales</h3>
+                  <h3 class="card-title">Lista de Productos</h3>
                   <div class="card-tools">
 
-                     <a href="{{route('admin.segmentos.create')}}" class="btn btn-primary">
-                        Agregar Serie Documental
+                     <a href="{{route('admin.productos.create')}}" class="btn btn-primary">
+                        Agregar producto
                      </a>
                   </div>
                 </div>
@@ -47,36 +47,13 @@
                     <thead>
                      <tr>
                         <th>ID</th>
-                        <th>NOMBRE DE LA SERIE</th>
+                        <th>NOMBRE DEL PRODUCTO</th>
+                        <th>CLASE</th>
                         <th>ACCIONES</th>
                      </tr>
-                      {{--  <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Rol</th>
-                        <th>Acciones</th>
-                      </tr>  --}}
+                     
                     </thead>
-                    <tbody>
-                     @foreach ($segmentos as $segmento)
-                     <tr>
-                       <td>{{$segmento->id}}</td>
-                       <td>{{$segmento->detsegmento}}</td>
-                       <td >
-                           <form action="{{route('admin.segmentos.destroy',$segmento)}}" method="POST">
-                              @csrf
-                               @method('delete')
-
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.segmentos.edit', $segmento)}}">Editar</a>
-
-                               <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                           </form>
-                       </td>
-                     </tr>
-                   @endforeach
-
-                    </tbody>
+                    
                   </table>
                 </div>
                 <!-- /.card-body -->
@@ -101,7 +78,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'La Serie se Actualizo con Exito.'
+            title: 'El Producto se Actualizo con Exito.'
         })
       });
 </script>
@@ -117,7 +94,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'La Serie se Creó con Exito.'
+            title: 'El Producto se Creo con Exito.'
         })
       });
 </script>
@@ -126,7 +103,7 @@
 <script>
     Swal.fire(
         '¡Eliminado!',
-        'La Serie se Eliminó con Exito.',
+        'El Producto se Elimino con Exito.',
         'success'
       )
 </script>
@@ -162,5 +139,31 @@
 {!! Html::script('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js') !!}
 {!! Html::script('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') !!}
 {!! Html::script('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') !!}
-@include('includes._datatable_language')
+
+<script>
+    $(function () {
+        $('#example2').DataTable({
+            "serverSide": true,
+            "ajax": "{{url('api/products')}}",
+
+            "columns":
+                [{data: 'id'},
+                {data: 'detproducto'},
+                {data: 'clase'},
+                {data: 'btn'},
+                ],
+
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+        });
+    });
+</script>
+
+
 @endsection

@@ -1,19 +1,21 @@
 <aside class="main-sidebar bg-black elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route('home')}}" class="brand-link">
-      <img src="{!!asset('adminlte/dist/img/AdminLTELogo.png')!!}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="text-light brand-text font-weight-light">Inventario Documental</span>
+    <a href="{{ route('home') }}" class="brand-link">
+        <img src="{!! asset('adminlte/dist/img/AdminLTELogo.png') !!}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="text-light brand-text font-weight-light">Inventario Documental</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->      
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-         
+        <!-- Sidebar user panel (optional) -->
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
 
-          {{--  <li class="nav-item">
+
+                {{--  <li class="nav-item">
             <a href="{{route('home')}}" class="nav-link 
             {!! active_class(route('home')) !!}
             ">
@@ -24,156 +26,117 @@
             </a>
           </li>   --}}
 
-          @if (auth()->user()->hasRole('Admin'))
-
-          
-
-          <li class="nav-item">
-            <a href="{{route('empresa.index')}}" class="nav-link 
+                @if (auth()->user()->hasRole('Admin'))
+                    <li class="nav-item">
+                        <a href="{{ route('empresa.index') }}"
+                            class="nav-link 
             {!! active_class(route('empresa.index')) !!}
             ">
-              <i class="nav-icon fas fa-building"></i>
-              <p>
-                Empresa
-              </p>
-            </a>
-          </li> 
+                            <i class="nav-icon fas fa-building"></i>
+                            <p>
+                                Empresa
+                            </p>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="{{route('users.index')}}" class="nav-link 
-            {!! active_class(route('users.index')) !!}
+                    <li class="nav-item">
+                        <a href="{{ route('admin.carteras.index') }}"
+                            class="nav-link 
+            {!! active_class(route('admin.carteras.index')) !!}
             ">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Usuarios
-              </p>
-            </a>
-          </li> 
+                            <i class="nav-icon fas fa-clipboard-list"></i>
+                            <p>
+                                Cartera
+                            </p>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="{{route('admin.areas.index')}}" class="nav-link 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.areas.index') }}"
+                            class="nav-link 
             {!! active_class(route('admin.areas.index')) !!}
             ">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Áreas
-              </p>
-            </a>
-          </li> 
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Área
+                            </p>
+                        </a>
+                    </li>
 
-          <!-- <li class="nav-item">
-            <a href="{{route('admin.clases.index')}}" class="nav-link 
-            {!! active_class(route('admin.clases.index')) !!}
+                    <li class="nav-item">
+                        <a href="{{ route('users.index') }}"
+                            class="nav-link 
+            {!! active_class(route('users.index')) !!}
             ">
-              <i class="nav-icon fas fa-list-ul"></i>
-              <p>
-                Clases
-              </p>
-            </a>
-          </li>  -->
-           
-          <li class="nav-item">
-            <a href="{{route('admin.dependencias.index')}}" class="nav-link 
-            {!! active_class(route('admin.dependencias.index')) !!}
-            ">       
-              <i class="nav-icon fas fa-clipboard-list"></i>
-              <p>
-                Dependencias
-              </p>
-            </a>
-          </li>   
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Usuario
+                            </p>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="{{route('planadquisiciones.index')}}" class="nav-link 
-            {!! active_class(route('planadquisiciones.index')) !!}
+                    <li class="nav-item">
+                        <a href="{{ route('admin.planesdesarrollo.index') }}"
+                            class="nav-link 
+            {!! active_class(route('admin.planesdesarrollo.index')) !!}
             ">
-            <i class="nav-icon fas fa-parking"></i>
-              <p>
-                Inventario
-              </p>
-            </a>
-          </li>        
+                            <i class="nav-icon fas fa-th-list"></i>
+                            <p>
+                                Plan de Desarrollo
+                            </p>
+                        </a>
+                    </li>
 
-          <!-- <li class="nav-item">
-            <a href="{{route('admin.estadovigencias.index')}}" class="nav-link 
-            {!! active_class(route('admin.estadovigencias.index')) !!}
+                    <li class="nav-item">
+                        <a href="{{ route('admin.sectores.index') }}"
+                            class="nav-link 
+            {!! active_class(route('admin.sectores.index')) !!}
             ">
-              <i class="nav-icon fas fa-calendar-minus"></i>
-              <p>
-                Series Documentales
-              </p>
-            </a>
-          </li>  -->
+                            <i class="nav-icon fas fa-house-user"></i>
+                            <p>
+                                Sectores
+                            </p>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="{{route('admin.modalidades.index')}}" class="nav-link 
-            {!! active_class(route('admin.modalidades.index')) !!}
+                    <li class="nav-item">
+                        <a href="{{ route('admin.programas.index') }}"
+                            class="nav-link 
+            {!! active_class(route('admin.programas.index')) !!}
             ">
-              <i class="nav-icon fas fa-stream"></i>
-              <p>
-                Objeto Documental
-              </p>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="{{route('admin.segmentos.index')}}" class="nav-link 
-            {!! active_class(route('admin.segmentos.index')) !!}
+                            <i class="nav-icon fas fa-list-ul"></i>
+                            <p>
+                                Programa
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.subprogramas.index') }}"
+                            class="nav-link 
+            {!! active_class(route('admin.subprogramas.index')) !!}
             ">
-              <i class="nav-icon fas fa-th-list"></i>
-              <p>
-              Series Documentales
-              </p>
-            </a>
-          </li> 
+                            <i class="nav-icon fas fa-calendar-minus"></i>
+                            <p>
+                                Sub Programa
+                            </p>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="{{route('admin.familias.index')}}" class="nav-link 
-            {!! active_class(route('admin.familias.index')) !!}
+                    <li class="nav-item">
+                        <a href="{{ route('productos.index') }}"
+                            class="nav-link 
+            {!! active_class(route('productos.index')) !!}
             ">
-              <i class="nav-icon fas fa-house-user"></i>
-              <p>
-                Subserie Documental
-              </p>
-            </a>
-          </li> 
+                            <i class="nav-icon fas fa-parking"></i>
+                            <p>
+                                Producto
+                            </p>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="{{route('admin.fuentes.index')}}" class="nav-link 
-            {!! active_class(route('admin.fuentes.index')) !!}
-            ">
-              <i class="nav-icon fas fa-location-arrow"></i>
-              <p>
-                Soporte Documental
-              </p>
-            </a>
-          </li> 
 
-          <!-- <li class="nav-item">
-            <a href="{{route('admin.meses.index')}}" class="nav-link 
-            {!! active_class(route('admin.meses.index')) !!}
-            ">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Meses
-              </p>
-            </a>
-          </li>   --> 
-
-          
-
-          <!-- <li class="nav-item">
-            <a href="{{route('admin.productos.index')}}" class="nav-link 
-            {!! active_class(route('admin.productos.index')) !!}
-            ">
-              <i class="nav-icon fab fa-product-hunt"></i>
-              <p>
-                Productos
-              </p>
-            </a>
-          </li>  -->
-
-{{-- 
+                    {{-- 
           <li class="nav-item">
             <a href="{{route('admin.tipoadquicsiciones.index')}}" class="nav-link 
             {!! active_class(route('admin.tipoadquicsiciones.index')) !!}
@@ -185,7 +148,7 @@
             </a>
           </li> --}}
 
-           {{-- <li class="nav-item">
+                    {{-- <li class="nav-item">
             <a href="{{route('admin.tipoadquicsiciones55.index')}}" class="nav-link 
             {!! active_class(route('admin.tipoadquicsiciones55.index')) !!}
             ">
@@ -196,89 +159,35 @@
             </a>
           </li>  --}}
 
-          <li class="nav-item">
-            <a href="{{route('admin.tipoprioridades.index')}}" class="nav-link 
-            {!! active_class(route('admin.tipoprioridades.index')) !!}
-            ">
-              <i class="nav-icon fas fa-cogs"></i>
-              <p>
-                Frecuencia de Consulta
-              </p>
-            </a>
-          </li>
 
-          <!-- <li class="nav-item">
-            <a href="{{route('admin.tipoprocesos.index')}}" class="nav-link 
-            {!! active_class(route('admin.tipoprocesos.index')) !!}
-            ">
-              <i class="nav-icon fas fa-list-alt"></i>
-              <p>
-                Subserie Documental
-              </p>
-            </a>
-          </li>  -->
 
-          <!-- <li class="nav-item">
-            <a href="{{route('tipozonas.index')}}" class="nav-link 
-            {!! active_class(route('tipozonas.index')) !!}
-            ">
-              <i class="nav-icon far fa-map"></i>
-              <p>
-                Tipo de Zonas
-              </p>
-            </a>
-          </li>  -->
-
-          {{--  <li class="nav-item">
-            <a href="{{route('admin.vigenfuturas.index')}}" class="nav-link 
-            {!! active_class(route('admin.vigenfuturas.index')) !!}
-            ">
-              <i class="nav-icon far fa-calendar-check"></i>
-              <p>
-                Vigencia fututa
-              </p>
-            </a>
-          </li>   --}}
-          
-          <li class="nav-item">
-            <a href="{{route('admin.proyectos.index')}}" class="nav-link 
-            {!! active_class(route('admin.proyectos.index')) !!}
-            ">
-              <i class="nav-icon fas fa-poll"></i>
-              <p>
-                Codigo de Dependencia
-              </p>
-            </a>
-          </li> 
-
-          <li class="nav-item">
-            <a href="{{route('importar_datos')}}" class="nav-link 
+                    <li class="nav-item">
+                        <a href="{{ route('importar_datos') }}"
+                            class="nav-link 
             {!! active_class(route('importar_datos')) !!}
             ">
-              <i class="nav-icon far fa-calendar-check"></i>
-              <p>
-                Importar datos 
-              </p>
-            </a>
-          </li>    
-          
-          @else
-          
-          <li class="nav-item">
-            <a href="{{route('planadquisiciones.index')}}" class="nav-link 
-            {!! active_class(route('planadquisiciones.index')) !!}
+                            <i class="nav-icon far fa-calendar-check"></i>
+                            <p>
+                                Importar datos
+                            </p>
+                        </a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a href="{{ route('productos.index') }}"
+                            class="nav-link 
+            {!! active_class(route('productos.index')) !!}
             ">
-            <i class="nav-icon fas fa-parking"></i>
-              <p>
-                Inventario
-              </p>
-            </a>
-          </li> 
-
-          @endif
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+                            <i class="nav-icon fas fa-parking"></i>
+                            <p>
+                                Producto
+                            </p>
+                        </a>
+                    </li>
+                @endif
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
+</aside>
