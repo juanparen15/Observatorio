@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Lista Subserie Documental')
+@section('title','Lista Sectores')
 @section('style')
 <!-- SweetAlert2 -->
 {!! Html::style('adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') !!}
@@ -20,7 +20,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                        <li class="breadcrumb-item active">Lista Subserie Documental</li>
+                        <li class="breadcrumb-item active">Lista Sectores</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,11 +33,11 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Lista Subserie Documental</h3>
+                  <h3 class="card-title">Lista Sector</h3>
                   <div class="card-tools">
 
-                     <a href="{{route('admin.familias.create')}}" class="btn btn-primary">
-                        Agregar Subserie Documental
+                     <a href="{{route('admin.sectores.create')}}" class="btn btn-primary">
+                        Agregar Sector
                      </a>
                   </div>
                 </div>
@@ -47,25 +47,28 @@
                     <thead>
                      <tr>
                         <th>ID</th>
-                        <th>NOMBRE SUBSERIE DOCUMENTAL</th>
-                        <th>NOMBRE SERIE DOCUMENTAL</th>
+                        <th>NOMBRE PLAN DE DESARROLLO</th>
+                        <th>CODIGO SECTOR</th>
+                        <th>NOMBRE SECTOR</th>
+
                         <th>ACCIONES</th>
                       </tr>
                     </thead>
                     <tbody>
                      
-                     @foreach ($familias as $familia)
+                     @foreach ($sectores as $sector)
                      <tr>
-                       <td>{{$familia->id}}</td>
-                       <td>{{$familia->detfamilia}}</td>
-                       <td>{{$familia->segmento->detsegmento}}</td>
+                       <td>{{$sector->id}}</td>
+                       <td>{{$sector->plandesarrollo->nomPD}}</td>
+                       <td>{{$sector->codS}}</td>
+                       <td>{{$sector->nomS}}</td>
                        
                        <td width="10px">
-                           <form action="{{route('admin.familias.destroy',$familia)}}" method="POST">
+                           <form action="{{route('admin.sectores.destroy',$sector)}}" method="POST">
                               @csrf
                                @method('delete')
 
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.familias.edit', $familia)}}">Editar</a>
+                               <a class="btn btn-primary btn-sm" href="{{route('admin.sectores.edit', $sector)}}">Editar</a>
 
                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                            </form>
@@ -99,7 +102,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'La Subserie Documental se Actualizo con Exito.'
+            title: 'El sector se Actualizo con Exito.'
         })
       });
 </script>
@@ -115,7 +118,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'La Subserie Documental se Creo con Exito.'
+            title: 'El sector se Creó con Exito.'
         })
       });
 </script>
@@ -124,7 +127,7 @@
 <script>
     Swal.fire(
         '¡Eliminado!',
-        'La Subserie Documental se Elimino con Exito.',
+        'El sector se Elimino con Exito.',
         'success'
       )
 </script>

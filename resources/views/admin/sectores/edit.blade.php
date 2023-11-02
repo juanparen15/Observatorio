@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Editar Subserie Documental')
+@section('title', 'Editar Sectores')
 @section('style')
     <!-- Select2 -->
     {!! Html::style('adminlte/plugins/select2/css/select2.min.css') !!}
@@ -13,14 +13,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Editar Subserie Documental</h1>
+                        <h1>Editar Sectores</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.familias.index') }}">Subserie Documental</a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.sectores.index') }}">Sectores</a>
                             </li>
-                            <li class="breadcrumb-item active">Editar Subserie Documental</li>
+                            <li class="breadcrumb-item active">Editar Sector</li>
                         </ol>
                     </div>
                 </div>
@@ -29,44 +29,50 @@
 
         <!-- Main content -->
         <section class="content">
-            {!! Form::model($subserie, ['route' => ['admin.familias.update', $subserie], 'method' => 'PUT']) !!}
+            {!! Form::model($sector, ['route' => ['admin.sectores.update', $sector], 'method' => 'PUT']) !!}
             <div class="card card-primary">
                 {{--  <div class="card-header">
               <h3 class="card-title">General</h3>
             </div>  --}}
                 <div class="card-body">
 
-
-
                     <div class="form-group">
-                        {!! Form::label('detfamilia', 'NOMBRE SUBSERIE DOCUMENTAL') !!}
-                        {!! Form::text('detfamilia', null, [
-                            'class' => 'form-control',
-                            'placeholder' => 'Ingrese el Nombre de la Subserie Documental',
-                        ]) !!}
-                        @error('detfamilia')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+                        <label for="fK_pDes">PLAN DE DESARROLLO</label>
+                        <select class="select2 @error('fK_pDes') is-invalid @enderror" name="fK_pDes" id="fK_pDes"
+                            style="width: 100%;">
 
-
-
-                    <div class="form-group">
-                        <label for="segmento_id">SERIE DOCUMENTAL</label>
-                        <select class="select2 @error('segmento_id') is-invalid @enderror" name="segmento_id"
-                            id="segmento_id" style="width: 100%;">
-
-                            <option disabled selected>Selecciona una Serie Documental</option>
-                            @foreach ($segmentos as $segmento)
-                                <option value="{{ $segmento->id }}"
-                                    {{ old('segmento_id', $subserie->segmento_id) == $segmento->id ? 'selected' : '' }}>
-                                    {{ $segmento->detsegmento }}</option>
+                            <option disabled selected>Selecciona un Plan de Desarrollo</option>
+                            @foreach ($planesdesarrollo as $plandesarrollo)
+                                <option value="{{ $plandesarrollo->id }}"
+                                    {{ old('fK_pDes', $sector->fK_pDes) == $plandesarrollo->id ? 'selected' : '' }}>
+                                    {{ $plandesarrollo->nomPD }}</option>
                             @endforeach
                         </select>
-                        @error('segmento_id')
+                        @error('fK_pDes')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('codS', 'CODIGO SECTOR') !!}
+                        {!! Form::text('codS', null, [
+                            'class' => 'form-control',
+                            'placeholder' => 'Ingrese el Codigo del Sector',
+                        ]) !!}
+                        @error('codS')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('nomS', 'NOMBRE SECTOR') !!}
+                        {!! Form::text('nomS', null, [
+                            'class' => 'form-control',
+                            'placeholder' => 'Ingrese el Nombre del Sector',
+                        ]) !!}
+                        @error('nomS')
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
 
