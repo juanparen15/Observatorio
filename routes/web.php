@@ -62,7 +62,7 @@ Route::get('obtener_productos', 'AjaxController@obtener_productos')->name('obten
 
 // route::get('planadquisiciones/{planadquisicion}/agregar_producto', 'PlanadquisicioneController@agregar_producto')->name('agregar_producto');
 // route::post('planadquisiciones/{planadquisicion}/agregar_producto_store', 'PlanadquisicioneController@agregar_producto_store')->name('agregar_producto_store');
-Route::resource('users', 'UserController')->names('users');
+Route::resource('users', 'UsuarioController')->names('users');
 
 // ================== rutas para importar datos 
 Route::post('areas_import', 'ImportExcelController@areas_import')->name('areas.import.excel');
