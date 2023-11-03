@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Area;
 use App\Producto;
 use App\Programa;
 use App\Sector;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Dependencia;
+namespace App\Http\Requests\Cartera;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nomdependencia' => 'required',
+            'nomCar' => 'required',
         ];
     }
 }

@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'codProg' => 'required',
             'nomProg' => 'required',
-            'fK_sector'=>'required'
+            'fK_sector' => 'required'
         ];
     }
 }

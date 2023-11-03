@@ -100,7 +100,7 @@
         });
 
         var fK_programa = $('#fK_programa');
-        var fK_subprograma = $('#fK_subprograma');
+        var fK_sProg = $('#fK_sProg');
         fK_programa.change(function() {
             $.ajax({
                 url: "{{ route('obtener_subprogramas') }}",
@@ -109,12 +109,12 @@
                     fK_programa: fK_programa.val(),
                 },
                 success: function(data) {
-                    fK_subprograma.empty();
-                    fK_subprograma.append(
+                    fK_sProg.empty();
+                    fK_sProg.append(
                         '<option disabled selected>Seleccione un SubPrograma:</option>'
                     );
                     $.each(data, function(index, element) {
-                        fK_subprograma.append('<option value="' + element.id + '">' + element
+                        fK_sProg.append('<option value="' + element.id + '">' + element
                             .nomSP + '</option>')
                     });
 

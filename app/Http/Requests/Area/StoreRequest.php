@@ -25,15 +25,15 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nomarea' => 'required|unique:areas',
-            'dependencia_id'=>'integer|required|exists:App\Dependencia,id',
+            'nomA' => 'required|unique:areas',
+            'fK_car'=>'integer|required|exists:App\Cartera,id',
         ];
     }
     public function messages()
     {
         return[
-            'nomarea.required'=> 'Este Campo es Requerido',
-            'dependencia_id.required'=>'Este Campo es Requerido',
+            'nomA.required'=> 'Este Campo es Requerido',
+            'fK_car.required'=>'Este Campo es Requerido',
             
         ];
         

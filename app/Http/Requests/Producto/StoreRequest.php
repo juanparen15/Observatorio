@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Planadquisicione;
+namespace App\Http\Requests\Producto;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,21 +24,14 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'caja'=> 'required',
-            'carpeta'=> 'required',
-            'tomo'=> 'required',
-            'otro'=> 'required',
-            'folio'=> 'required',
-            'nota'=> 'required',
-            'modalidad_id'=> 'required',
-            'fuente_id'=> 'required',
-            'tipoprioridade_id'=> 'required',
-            'requiproyecto_id'=> 'required',
-            'segmento_id'=> 'required',
-            'familias_id'=> 'required',
-            'fechaInicial'=> 'required',
-            'fechaFinal'=> 'required',
-            'area_id'=> 'required'
+            'fK_sProg'=> 'required',
+            'fK_tProd'=> 'required',
+            'fK_uMed'=> 'required',
+            'fK_user'=> 'required',
+            'codProd'=> 'required',
+            'nomProd'=> 'required',
+            'IB'=> 'required',
+            'mCuatrienia'=> 'required',
         ];
     }
 }

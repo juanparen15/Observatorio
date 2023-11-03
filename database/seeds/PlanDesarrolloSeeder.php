@@ -12,6 +12,6 @@ class PlanDesarrolloSeeder extends Seeder
      */
     public function run()
     {        
-            //factory(PlanDesarrollo::class)->times(10)->create();
+            factory(PlanDesarrollo::class)->times(10)->create();
     }
 }

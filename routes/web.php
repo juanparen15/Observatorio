@@ -26,20 +26,33 @@ Route::get('/vista', function () {
 Route::resource('empresa', 'EmpresaController')->only([
     'index', 'edit', 'update'
 ])->names('empresa');
-Route::resource('areas', 'AreaController')->except([
-    'show',
-])->names('admin.areas');
-Route::resource('clases', 'ClaseController')->except([
-    'show',
-])->names('admin.clases');
 Route::resource('carteras', 'CarteraController')->except([
     'show',
 ])->names('admin.carteras');
-Route::resource('sector', 'SectorController')->except([
+Route::resource('areas', 'AreaController')->except([
+    'show',
+])->names('admin.areas');
+Route::resource('planesdesarrollo', 'PlanDesarrolloController')->except([
+    'show',
+])->names('admin.planesdesarrollo');
+Route::resource('sectores', 'SectorController')->except([
     'show',
 ])->names('admin.sectores');
+Route::resource('programas', 'ProgramaController')->except([
+    'show',
+])->names('admin.programas');
+Route::resource('subprogramas', 'SubProgramaController')->except([
+    'show',
+])->names('admin.subprogramas');
+Route::resource('tipoproductos', 'TipoProductoController')->except([
+    'show',
+])->names('admin.tipoproductos');
+Route::resource('unidadmedidas', 'UnidadMedidaController')->except([
+    'show',
+])->names('admin.unidadmedidas');
 
-Route::resource('producto', 'ProductoController')->names('productos');
+
+Route::resource('productos', 'ProductoController')->names('productos');
 // route::get('retirar_producto/{planadquisicione}/de/{producto}', 'PlanadquisicioneController@retirar_producto')->name('retirar_producto');
 Route::get('exportar_productos_excel/{producto}', 'ProductoController@exportar_productos_excel')->name('exportar_productos_excel');
 Route::resource('productos', 'ProductoController')->except([
@@ -49,7 +62,7 @@ Route::get('importar_datos', function () {
     return view('admin.importar_datos');
 })->name('importar_datos');
 Route::get('productos/{slug}/destroy', 'ProductoController@destroy')->name('admin.productos.destroy');
-Route::resource('plan', 'PlanDesarrolloController')->except([
+Route::resource('planesdesarrollo', 'PlanDesarrolloController')->except([
     'show',
 ])->names('admin.planesdesarrollo');
 
@@ -62,7 +75,8 @@ Route::get('obtener_productos', 'AjaxController@obtener_productos')->name('obten
 
 // route::get('planadquisiciones/{planadquisicion}/agregar_producto', 'PlanadquisicioneController@agregar_producto')->name('agregar_producto');
 // route::post('planadquisiciones/{planadquisicion}/agregar_producto_store', 'PlanadquisicioneController@agregar_producto_store')->name('agregar_producto_store');
-Route::resource('users', 'UsuarioController')->names('users');
+Route::resource('users', 'UserController')->names('users');
+Route::resource('area', 'AreaController')->names('area');
 
 // ================== rutas para importar datos 
 Route::post('areas_import', 'ImportExcelController@areas_import')->name('areas.import.excel');
@@ -82,6 +96,5 @@ Route::get('producto', 'ProductoController@index')->name('productos.index');
 Route::get('producto/area/{areaId}', 'ProductoController@indexByArea')->name('productos.indexByArea');
 
 // Route::get('/chart', 'ChartController@handleChart')->name('inventarioDocumental.handleChart');
-Route::get('/chart', [ChartController::class, 'chart'])->name('/chart');
+// Route::get('/chart', [ChartController::class, 'chart'])->name('/chart');
 // Route::get('home', [HomeController::class, 'index']);
-

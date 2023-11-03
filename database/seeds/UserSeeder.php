@@ -162,10 +162,16 @@ class UserSeeder extends Seeder
         ]);
 
         $user_admin = User::create([
+            'name' => 'Fabian Murillo Marin',
+            'email' => 'ticsistemasptoboy@gmail.com',
+            'password' => bcrypt('Sistemas2024*a')
+        ])->assignRole('Admin');
+
+        $user_user = User::create([
             'name' => 'Oficina de Sistemas',
             'email' => 'sistemas@puertoboyaca-boyaca.gov.co',
             'password' => bcrypt('Sistemas2024*a')
-        ])->assignRole('Admin');
+        ])->assignRole('User');
 
         $user_user = User::create([
             'name' => 'Oficina de Control Interno',

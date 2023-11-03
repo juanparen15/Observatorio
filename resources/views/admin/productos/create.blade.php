@@ -403,14 +403,14 @@
 
         });
 
-        var fK_subprograma = $('#fK_subprograma');
+        var fK_sProg = $('#fK_sProg');
         var fK_tProd = $('#fK_tProd');
-        fK_subprograma.change(function() {
+        fK_sProg.change(function() {
             $.ajax({
                 url: "{{ route('obtener_productos') }}",
                 method: 'GET',
                 data: {
-                    fK_subprograma: fK_subprograma.val(),
+                    fK_sProg: fK_sProg.val(),
                 },
                 success: function(data) {
                     fK_tProd.empty();

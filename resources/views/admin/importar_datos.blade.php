@@ -33,7 +33,7 @@
 
 
             <div class="form-group">
-                <form action="{{route('planadquisicione.import.excel')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('productos.import.excel')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <input type="file" name="file" required>

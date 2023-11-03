@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Planadquisicione;
+namespace App\Http\Requests\Producto;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,14 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'fK_sProg'=> 'required',
+            'fK_tProd'=> 'required',
+            'fK_uMed'=> 'required',
+            'fK_user'=> 'required',
+            'codProd'=> 'required',
+            'nomProd'=> 'required',
+            'IB'=> 'required',
+            'mCuatrienia'=> 'required',
         ];
     }
 }
