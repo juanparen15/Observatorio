@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cartera extends Model
 {
     public $incrementing = false;
+    protected $table = 'cartera';
     protected $fillable= ['id','codC','nomCar', 'slug'];
 
     public function getRouteKeyName() {

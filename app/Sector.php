@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sector extends Model
 {
     public $incrementing = false;
+    protected $table = 'sectores';
     protected $fillable= ['id','fK_pDes','codS', 'nomS', 'slug'];
 
     public function getRouteKeyName() {

@@ -18,7 +18,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.planesdesarrollo.index') }}">Lista Planes de
+                            <li class="breadcrumb-item"><a href="{{ route('admin.plandesarrollo.index') }}">Lista Planes de
                                     Desarrollo</a></li>
                             <li class="breadcrumb-item active">Crear Nuevo Desarrollo</li>
                         </ol>
@@ -29,7 +29,7 @@
 
         <!-- Main content -->
         <section class="content">
-            {!! Form::open(['route' => 'admin.planesdesarrollo.store', 'method' => 'POST']) !!}
+            {!! Form::open(['route' => 'admin.plandesarrollo.store', 'method' => 'POST']) !!}
             <div class="card">
                 {{--  <div class="card-header">
               <h3 class="card-title">General</h3>

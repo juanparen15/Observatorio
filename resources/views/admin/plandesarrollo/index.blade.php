@@ -36,7 +36,7 @@
                   <h3 class="card-title">Lista Planes de Desarrollo</h3>
                   <div class="card-tools">
 
-                     <a href="{{route('admin.planesdesarrollo.create')}}" class="btn btn-primary">
+                     <a href="{{route('admin.plandesarrollo.create')}}" class="btn btn-primary">
                         Agregar Plan de Desarrollo
                      </a>
                   </div>
@@ -66,11 +66,11 @@
                        <td>{{$plandesarrollo->anno}}</td>
                        <td>{{$plandesarrollo->nomPD}}</td>
                        <td >
-                           <form action="{{route('admin.planesdesarrollo.destroy',$plandesarrollo)}}" method="POST">
+                           <form action="{{route('admin.plandesarrollo.destroy',$plandesarrollo)}}" method="POST">
                               @csrf
                                @method('delete')
 
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.planesdesarrollo.edit', $plandesarrollo)}}">Editar</a>
+                               <a class="btn btn-primary btn-sm" href="{{route('admin.plandesarrollo.edit', $plandesarrollo)}}">Editar</a>
 
                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                            </form>

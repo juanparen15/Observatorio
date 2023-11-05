@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Programa extends Model
 {
     public $incrementing = false;
+    protected $table = 'programa';
     protected $fillable= [
         'id',
         'fK_sector',

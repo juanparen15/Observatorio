@@ -32,9 +32,9 @@ Route::resource('cartera', 'CarteraController')->except([
 Route::resource('areas', 'AreaController')->except([
     'show',
 ])->names('admin.areas');
-Route::resource('planesdesarrollo', 'PlanDesarrolloController')->except([
+Route::resource('plandesarrollo', 'PlanDesarrolloController')->except([
     'show',
-])->names('admin.planesdesarrollo');
+])->names('admin.plandesarrollo');
 Route::resource('sectores', 'SectorController')->except([
     'show',
 ])->names('admin.sectores');
@@ -62,12 +62,10 @@ Route::get('importar_datos', function () {
     return view('admin.importar_datos');
 })->name('importar_datos');
 Route::get('productos/{slug}/destroy', 'ProductoController@destroy')->name('admin.productos.destroy');
-Route::resource('planesdesarrollo', 'PlanDesarrolloController')->except([
-    'show',
-])->names('admin.planesdesarrollo');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('plandesarrollo', 'PlanDesarrolloController@index')->name('admin.plandesarrollo.index');
 Route::get('obtener_sectores', 'AjaxController@obtener_sectores')->name('obtener_sectores');
 Route::get('obtener_programas', 'AjaxController@obtener_programas')->name('obtener_programas');
 Route::get('obtener_subprogramas', 'AjaxController@obtener_subprogramas')->name('obtener_subprogramas');
@@ -76,8 +74,6 @@ Route::get('obtener_productos', 'AjaxController@obtener_productos')->name('obten
 // route::get('planadquisiciones/{planadquisicion}/agregar_producto', 'PlanadquisicioneController@agregar_producto')->name('agregar_producto');
 // route::post('planadquisiciones/{planadquisicion}/agregar_producto_store', 'PlanadquisicioneController@agregar_producto_store')->name('agregar_producto_store');
 Route::resource('users', 'UserController')->names('users');
-// Route::resource('areas', 'AreaController')->names('areas');
-// Route::resource('cartera', 'CarteraController')->names('cartera');
 
 // ================== rutas para importar datos 
 Route::post('areas_import', 'ImportExcelController@areas_import')->name('areas.import.excel');

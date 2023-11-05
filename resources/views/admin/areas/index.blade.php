@@ -48,7 +48,7 @@
                      <tr>
                         <th>ID</th>
                         <th>NOMBRE AREA</th>
-                        <th>NOMBRE DEPENDENCIA</th>
+                        <th>NOMBRE CARTERA</th>
                         <th>ACCIONES</th>
                      </tr>
                       {{--  <tr>
@@ -64,10 +64,10 @@
                      @foreach ($areas as $area)
                      <tr>
                        <td>{{$area->id}}</td>
-                       <td>{{$area->nomarea}}</td>
+                       <td>{{$area->nomA}}</td>
                        <td>
-                           @if (isset( $area->dependencia->nomdependencia) )
-                           {{$area->dependencia->nomdependencia}}
+                           @if (isset( $area->cartera->nomCar) )
+                           {{$area->cartera->nomCar}}
                            @else
                            No especificado 
                            @endif

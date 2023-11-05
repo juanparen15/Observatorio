@@ -57,7 +57,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>{{ $programas }}</h3>
+                                    <h3>{{ $programa }}</h3>
                                     <p>Programas</p>
                                 </div>
                                 <div class="icon">
@@ -71,7 +71,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>{{ $subprogramas }}</h3>
+                                    <h3>{{ $subprograma }}</h3>
                                     <p>Sub Programas</p>
                                 </div>
                                 <div class="icon">
@@ -97,13 +97,13 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-purple">
                                 <div class="inner">
-                                    <h3>{{ $planesdesarrollo }}</h3>
+                                    <h3>{{ $plandesarrollo }}</h3>
                                     <p>Plan de Desarrollo</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-chess-king"></i>
                                 </div>
-                                <a href="{{ route('admin.planesdesarrollo.index') }}" class="small-box-footer">Ver Todo <i
+                                <a href="{{ route('admin.plandesarrollo.index') }}" class="small-box-footer">Ver Todo <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>

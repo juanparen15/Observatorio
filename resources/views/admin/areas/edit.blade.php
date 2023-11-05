@@ -37,25 +37,25 @@
 
 
               <div class="form-group">
-                {!! Form::label('nomarea','NOMBRE AREA') !!}
-                {!! Form::text('nomarea',null,['class' => 'form-control', 'placeholder' =>'Ingrese el Nombre de la Area']) !!}
-                 @error('nomarea')
+                {!! Form::label('nomA','NOMBRE AREA') !!}
+                {!! Form::text('nomA',null,['class' => 'form-control', 'placeholder' =>'Ingrese el Nombre de la Area']) !!}
+                 @error('nomA')
                      <span class="text-danger">{{$message}}</span>
                  @enderror
              </div>
   
              <div class="form-group">
-              <label for="dependencia_id">DEPENDENCIA</label>
-              <select class="select2 @error('dependencia_id') is-invalid @enderror" name="dependencia_id" id="dependencia_id" style="width: 100%;">
+              <label for="fK_car">DEPENDENCIA</label>
+              <select class="select2 @error('fK_car') is-invalid @enderror" name="fK_car" id="fK_car" style="width: 100%;">
 
                   <option disabled selected>Selecciona una dependencia</option>
-                  @foreach ($dependencias as $dependencia)
-                      <option value="{{ $dependencia->id }}"
-                      {{ old('dependencia_id', $area->dependencia_id) == $dependencia->id ? 'selected' : ''}}
-                      >{{ $dependencia->nomdependencia }}</option>
+                  @foreach ($cartera as $cartera)
+                      <option value="{{ $cartera->id }}"
+                      {{ old('fK_car', $area->fK_car) == $cartera->id ? 'selected' : ''}}
+                      >{{ $cartera->nomCar }}</option>
                   @endforeach
               </select>
-              @error('dependencia_id')
+              @error('fK_car')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>

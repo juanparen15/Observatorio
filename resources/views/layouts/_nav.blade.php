@@ -76,9 +76,9 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.planesdesarrollo.index') }}"
+                        <a href="{{ route('admin.plandesarrollo.index') }}"
                             class="nav-link 
-            {!! active_class(route('admin.planesdesarrollo.index')) !!}
+            {!! active_class(route('admin.plandesarrollo.index')) !!}
             ">
                             <i class="nav-icon fas fa-th-list"></i>
                             <p>

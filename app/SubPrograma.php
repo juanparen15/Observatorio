@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SubPrograma extends Model
 {
     public $incrementing = false;
+    protected $table = 'subprograma';
     protected $fillable= ['id','fK_programa', 'codProg', 'nomProg', 'slug'];
 
     public function getRouteKeyName() {

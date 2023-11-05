@@ -33,9 +33,9 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all()->count();
-        $subprogramas = SubPrograma::all()->count();
+        $subprograma = SubPrograma::all()->count();
         $programa = Programa::all()->count();
-        $planesdesarrollo = PlanDesarrollo::all()->count();
+        $plandesarrollo = PlanDesarrollo::all()->count();
         $sectores = Sector::all()->count();
         $cartera = Cartera::all()->count();
         $areas = Area::all()->count();
@@ -50,7 +50,7 @@ class HomeController extends Controller
 
         //     // return view("home", ["data" => json_encode($carpetas)]);
 
-        $carpetas = [];
+        // $carpetas = [];
 
 
         //     if (auth()->user()->hasRole('Admin')) {
@@ -181,7 +181,7 @@ class HomeController extends Controller
 
 
 
-        return view("home", compact('users', 'subprogrmas', 'programas', 'planesdesarrollo', 'sectores', 'adquisiciones', 'productos', 'cartera', 'areas'));
+        return view("home", compact('users', 'subprograma', 'programa', 'plandesarrollo', 'sectores',  'productos', 'cartera', 'areas'));
     }
     // ["data" => json_encode($carpetas)], 
 }

@@ -25,8 +25,8 @@ class CarteraController extends Controller
 
     public function index()
     {
-        $cartera = Cartera::get();
-        return view('admin.cartera.index', compact('cartera'));
+        $carteras = Cartera::get();
+        return view('admin.cartera.index', compact('carteras'));
     }
 
     public function create()
