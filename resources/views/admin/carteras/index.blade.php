@@ -36,7 +36,7 @@
                   <h3 class="card-title">Lista Carteras</h3>
                   <div class="card-tools">
 
-                     <a href="{{route('admin.carteras.create')}}" class="btn btn-primary">
+                     <a href="{{route('admin.cartera.create')}}" class="btn btn-primary">
                         Agregar Carteras
                      </a>
                   </div>
@@ -67,11 +67,11 @@
                        <td>{{$cartera->nomCar}}</td>
                        
                        <td class="project-actions text-right">
-                           <form action="{{route('admin.carteras.destroy',$cartera)}}" method="POST">
+                           <form action="{{route('admin.cartera.destroy',$cartera)}}" method="POST">
                               @csrf
                                @method('delete')
 
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.carteras.edit', $cartera)}}">Editar</a>
+                               <a class="btn btn-primary btn-sm" href="{{route('admin.cartera.edit', $cartera)}}">Editar</a>
 
                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                            </form>

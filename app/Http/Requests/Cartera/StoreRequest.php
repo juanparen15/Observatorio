@@ -24,6 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'codC' => 'required',
             'nomCar' => 'required',
         ];
     }

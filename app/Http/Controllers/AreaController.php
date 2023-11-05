@@ -35,8 +35,8 @@ class AreaController extends Controller
 
     public function create()
     {
-        $carteras = Cartera::get();
-        return view('admin.areas.create', compact('carteras'));
+        $cartera = Cartera::get();
+        return view('admin.areas.create', compact('cartera'));
     }
 
     public function store(StoreRequest $request)
@@ -58,8 +58,8 @@ class AreaController extends Controller
 
     public function edit(Area $area)
     {
-        $carteras = Cartera::get();
-        return view('admin.areas.edit', compact('area', 'carteras'));
+        $cartera = Cartera::get();
+        return view('admin.areas.edit', compact('area', 'cartera'));
     }
 
     public function update(UpdateRequest $request, Area $area)

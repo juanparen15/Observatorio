@@ -40,9 +40,9 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.carteras.index') }}"
+                        <a href="{{ route('admin.cartera.index') }}"
                             class="nav-link 
-            {!! active_class(route('admin.carteras.index')) !!}
+            {!! active_class(route('admin.cartera.index')) !!}
             ">
                             <i class="nav-icon fas fa-clipboard-list"></i>
                             <p>

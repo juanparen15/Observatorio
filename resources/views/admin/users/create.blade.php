@@ -97,18 +97,18 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="areas_id">Area</label>
-                                <select id="areas_id" name="areas_id"
-                                    class="form-control custom-select @error('areas_id') is-invalid @enderror">
+                                <label for="fK_area">Area</label>
+                                <select id="fK_area" name="fK_area"
+                                    class="form-control custom-select @error('fK_area') is-invalid @enderror">
                                     <option selected disabled>Selecciona area</option>
                                     @foreach ($areas as $area)
                                         <option value="{{ $area->id }}"
-                                            {{ old('areas_id') == $area->id ? 'selected' : '' }}>
-                                            {{ $area->nomarea }}
+                                            {{ old('fK_area') == $area->id ? 'selected' : '' }}>
+                                            {{ $area->nomA }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('areas_id')
+                                @error('fK_area')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Editar Dependencia')
+@section('title','Editar Carteras')
 @section('style')
 <!-- Select2 -->
 {!! Html::style('adminlte/plugins/select2/css/select2.min.css') !!}
@@ -13,13 +13,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editar Dependencia</h1>
+            <h1>Editar Carteras</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-              <li class="breadcrumb-item"><a href="{{route('admin.dependencias.index')}}">Lista Areas</a></li>
-              <li class="breadcrumb-item active">Editar Dependencia</li>
+              <li class="breadcrumb-item"><a href="{{route('admin.cartera.index')}}">Lista Carteras</a></li>
+              <li class="breadcrumb-item active">Editar Cartera</li>
             </ol>
           </div>
         </div>
@@ -28,7 +28,7 @@
 
     <!-- Main content -->
     <section class="content">
-        {!! Form::model($dependencia, ['route'=>['admin.dependencias.update',$dependencia],'method'=>'PUT']) !!}
+        {!! Form::model($cartera, ['route'=>['admin.cartera.update',$cartera],'method'=>'PUT']) !!}
         <div class="card card-primary">
             {{--  <div class="card-header">
               <h3 class="card-title">General</h3>
@@ -37,9 +37,17 @@
 
 
               <div class="form-group">
-                {!! Form::label('nomdependencia','NOMBRE DEPENDENCIA') !!}
-                {!! Form::text('nomdependencia',null,['class' => 'form-control', 'placeholder' =>'Ingrese el Nombre de la Dependencia']) !!}
-                 @error('nomdependencia')
+                {!! Form::label('codC','CODIGO CARTERA') !!}
+                {!! Form::text('codC',null,['class' => 'form-control', 'placeholder' =>'Ingrese el Codigo de la Cartera']) !!}
+                 @error('codC')
+                     <span class="text-danger">{{$message}}</span>
+                 @enderror
+             </div>
+
+             <div class="form-group">
+                {!! Form::label('nomCar','NOMBRE DEPENDENCIA') !!}
+                {!! Form::text('nomCar',null,['class' => 'form-control', 'placeholder' =>'Ingrese el Nombre de la Cartera']) !!}
+                 @error('nomCar')
                      <span class="text-danger">{{$message}}</span>
                  @enderror
              </div>

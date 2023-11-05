@@ -37,7 +37,7 @@ class HomeController extends Controller
         $programa = Programa::all()->count();
         $planesdesarrollo = PlanDesarrollo::all()->count();
         $sectores = Sector::all()->count();
-        $carteras = Cartera::all()->count();
+        $cartera = Cartera::all()->count();
         $areas = Area::all()->count();
         // $adquisiciones = Producto::all()->count();
         $productos = Producto::all()->count();
@@ -181,7 +181,7 @@ class HomeController extends Controller
 
 
 
-        return view("home", compact('users', 'subprogrmas', 'programas', 'planesdesarrollo', 'sectores', 'adquisiciones', 'productos', 'carteras', 'areas'));
+        return view("home", compact('users', 'subprogrmas', 'programas', 'planesdesarrollo', 'sectores', 'adquisiciones', 'productos', 'cartera', 'areas'));
     }
     // ["data" => json_encode($carpetas)], 
 }

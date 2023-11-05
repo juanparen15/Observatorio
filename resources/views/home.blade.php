@@ -112,13 +112,13 @@
                             <!-- small box -->
                             <div class="small-box bg-maroon">
                                 <div class="inner">
-                                    <h3>{{ $carteras }}</h3>
+                                    <h3>{{ $cartera }}</h3>
                                     <p>Carteras</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fab fa-xbox"></i>
                                 </div>
-                                <a href="{{ route('admin.carteras.index') }}" class="small-box-footer">Ver Todo <i
+                                <a href="{{ route('admin.cartera.index') }}" class="small-box-footer">Ver Todo <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>

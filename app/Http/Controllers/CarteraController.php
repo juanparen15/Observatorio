@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Cartera;
 use Illuminate\Http\Request;
-use App\Http\Requests\Dependencia\StoreRequest;
-use App\Http\Requests\Dependencia\UpdateRequest;
+use App\Http\Requests\Cartera\StoreRequest;
+use App\Http\Requests\Cartera\UpdateRequest;
 use Illuminate\Support\Str;
 
 class CarteraController extends Controller
@@ -14,24 +14,24 @@ class CarteraController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.carteras.index',
-            'permission:admin.carteras.store',
-            'permission:admin.carteras.create',
-            'permission:admin.carteras.destroy',
-            'permission:admin.carteras.update',
-            'permission:admin.carteras.edit'
+            'permission:admin.cartera.index',
+            'permission:admin.cartera.store',
+            'permission:admin.cartera.create',
+            'permission:admin.cartera.destroy',
+            'permission:admin.cartera.update',
+            'permission:admin.cartera.edit',
         ]);
     }
 
     public function index()
     {
-        $carteras = Cartera::get();
-        return view('admin.carteras.index', compact('carteras'));
+        $cartera = Cartera::get();
+        return view('admin.cartera.index', compact('cartera'));
     }
 
     public function create()
     {
-        return view('admin.carteras.create');
+        return view('admin.cartera.create');
     }
 
     public function store(StoreRequest $request)
@@ -41,17 +41,17 @@ class CarteraController extends Controller
             'nomCar' => $request->nomCar,
             'slug' => Str::slug($request->nomCar, '-'),
         ]);
-        return redirect()->route('admin.dependencias.index')->with('flash', 'registrado');
+        return redirect()->route('admin.cartera.index')->with('flash', 'registrado');
     }
 
     public function show(Cartera $cartera)
     {
-        return view('admin.carteras.show', compact('cartera'));
+        return view('admin.cartera.show', compact('cartera'));
     }
 
     public function edit(Cartera $cartera)
     {
-        return view('admin.carteras.edit', compact('cartera'));
+        return view('admin.cartera.edit', compact('cartera'));
     }
 
     public function update(UpdateRequest $request, Cartera $cartera)
@@ -61,12 +61,12 @@ class CarteraController extends Controller
             'nomCar' => $request->nomCar,
             'slug' => Str::slug($request->nomCar, '-'),
         ]);
-        return redirect()->route('admin.carteras.index')->with('flash', 'actualizado');
+        return redirect()->route('admin.cartera.index')->with('flash', 'actualizado');
     }
 
     public function destroy(Cartera $cartera)
     {
         $cartera->delete();
-        return redirect()->route('admin.carteras.index')->with('flash', 'eliminado');
+        return redirect()->route('admin.cartera.index')->with('flash', 'eliminado');
     }
 }

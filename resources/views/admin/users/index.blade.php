@@ -71,8 +71,8 @@
                                     <tr>
                                         <td>{{ $user->id }}</td>
                                         <td>
-                                            @if (isset( $user->area->nomarea) )
-                                            {{$user->area->nomarea}}
+                                            @if (isset( $user->area->nomA) )
+                                            {{$user->area->nomA}}
                                             @else
                                             No especificado 
                                             @endif

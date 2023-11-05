@@ -19,7 +19,7 @@ class Area extends Model
     }
 
     //Relacion Uno a Muchos (Inversa)
-    public function carteras(){
+    public function cartera(){
        return $this->belongsTo(Cartera::class);
     }
 }

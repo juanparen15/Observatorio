@@ -26,9 +26,9 @@ Route::get('/vista', function () {
 Route::resource('empresa', 'EmpresaController')->only([
     'index', 'edit', 'update'
 ])->names('empresa');
-Route::resource('carteras', 'CarteraController')->except([
+Route::resource('cartera', 'CarteraController')->except([
     'show',
-])->names('admin.carteras');
+])->names('admin.cartera');
 Route::resource('areas', 'AreaController')->except([
     'show',
 ])->names('admin.areas');
@@ -76,11 +76,12 @@ Route::get('obtener_productos', 'AjaxController@obtener_productos')->name('obten
 // route::get('planadquisiciones/{planadquisicion}/agregar_producto', 'PlanadquisicioneController@agregar_producto')->name('agregar_producto');
 // route::post('planadquisiciones/{planadquisicion}/agregar_producto_store', 'PlanadquisicioneController@agregar_producto_store')->name('agregar_producto_store');
 Route::resource('users', 'UserController')->names('users');
-Route::resource('area', 'AreaController')->names('area');
+// Route::resource('areas', 'AreaController')->names('areas');
+// Route::resource('cartera', 'CarteraController')->names('cartera');
 
 // ================== rutas para importar datos 
 Route::post('areas_import', 'ImportExcelController@areas_import')->name('areas.import.excel');
-Route::post('carteras_import', 'ImportExcelController@carteras_import')->name('carteras.import.excel');
+Route::post('carteras_import', 'ImportExcelController@carteras_import')->name('cartera.import.excel');
 Route::post('productos_import', 'ImportExcelController@productos_import')->name('productos.import.excel');
 Route::post('sectores_import', 'ImportExcelController@sectores_import')->name('sectores.import.excel');
 Route::post('plandesarrollo_import', 'ImportExcelController@plandesarrollo_import')->name('planesdesarrollo.import.excel');
@@ -93,7 +94,7 @@ Route::put('update-profile/{user}', 'UserController@updateProfile')->name('updat
 Route::get('producto/areas/{areaId}', 'ProductoController@indexByArea')->name('productos.indexByArea');
 Route::get('producto/onlyadmin', 'ProductoController@showOnlyAdmin')->name('productos.showOnlyAdmin');
 Route::get('producto', 'ProductoController@index')->name('productos.index');
-Route::get('producto/area/{areaId}', 'ProductoController@indexByArea')->name('productos.indexByArea');
+Route::get('producto/areas/{areaId}', 'ProductoController@indexByArea')->name('productos.indexByArea');
 
 // Route::get('/chart', 'ChartController@handleChart')->name('inventarioDocumental.handleChart');
 // Route::get('/chart', [ChartController::class, 'chart'])->name('/chart');

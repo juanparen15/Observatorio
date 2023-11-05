@@ -46,12 +46,12 @@ class UserSeeder extends Seeder
         Permission::create(['name' => 'admin.programas.destroy']);
         Permission::create(['name' => 'admin.programas.edit']);
 
-        Permission::create(['name' => 'admin.carteras.index']);
-        Permission::create(['name' => 'admin.carteras.store']);
-        Permission::create(['name' => 'admin.carteras.create']);
-        Permission::create(['name' => 'admin.carteras.destroy']);
-        Permission::create(['name' => 'admin.carteras.update']);
-        Permission::create(['name' => 'admin.carteras.edit']);
+        Permission::create(['name' => 'admin.cartera.index']);
+        Permission::create(['name' => 'admin.cartera.store']);
+        Permission::create(['name' => 'admin.cartera.create']);
+        Permission::create(['name' => 'admin.cartera.destroy']);
+        Permission::create(['name' => 'admin.cartera.update']);
+        Permission::create(['name' => 'admin.cartera.edit']);
 
         Permission::create(['name' => 'admin.sectores.index']);
         Permission::create(['name' => 'admin.sectores.store']);
@@ -116,12 +116,12 @@ class UserSeeder extends Seeder
             'admin.programas.destroy',
             'admin.programas.edit',
 
-            'admin.carteras.index',
-            'admin.carteras.store',
-            'admin.carteras.create',
-            'admin.carteras.destroy',
-            'admin.carteras.update',
-            'admin.carteras.edit',
+            'admin.cartera.index',
+            'admin.cartera.store',
+            'admin.cartera.create',
+            'admin.cartera.destroy',
+            'admin.cartera.update',
+            'admin.cartera.edit',
 
             'admin.sectores.index',
             'admin.sectores.store',
@@ -161,13 +161,13 @@ class UserSeeder extends Seeder
             'exportar_productos_excel',
         ]);
 
-        $user_admin = User::create([
-            'name' => 'Fabian Murillo Marin',
-            'email' => 'ticsistemasptoboy@gmail.com',
-            'password' => bcrypt('Sistemas2024*a')
-        ])->assignRole('Admin');
+        // $user_admin = User::create([
+        //     'name' => 'Fabian Murillo Marin',
+        //     'email' => 'ticsistemasptoboy@gmail.com',
+        //     'password' => bcrypt('Sistemas2024*a')
+        // ])->assignRole('Admin');
 
-        $user_user = User::create([
+        $user_admin = User::create([
             'name' => 'Oficina de Sistemas',
             'email' => 'sistemas@puertoboyaca-boyaca.gov.co',
             'password' => bcrypt('Sistemas2024*a')

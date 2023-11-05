@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Plan Aquisiciones')
+@section('title', 'Carteras')
 
 
 
 @section('content_header')
-    <h1>Detalles Dependencia</h1>
+    <h1>Detalles Carteras</h1>
 @stop
 
 @section('content')
