@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Crear Nuevo Plan')
+@section('title', 'Crear Nuevo Tipo de Productos')
 @section('style')
     <!-- Select2 -->
     {!! Html::style('adminlte/plugins/select2/css/select2.min.css') !!}
@@ -13,14 +13,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Crear Nuevo Plan de Desarrollo</h1>
+                        <h1>Crear Nuevo Tipo de Productos</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.planesdesarrollo.index') }}">Lista Planes de
-                                    Desarrollo</a></li>
-                            <li class="breadcrumb-item active">Crear Nuevo Desarrollo</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.tipoproductos.index') }}">Lista Tipo de Productos</a></li>
+                            <li class="breadcrumb-item active">Crear Nuevo Tipo de Producto</li>
                         </ol>
                     </div>
                 </div>
@@ -29,33 +28,20 @@
 
         <!-- Main content -->
         <section class="content">
-            {!! Form::open(['route' => 'admin.planesdesarrollo.store', 'method' => 'POST']) !!}
+            {!! Form::open(['route' => 'admin.tipoproductos.store', 'method' => 'POST']) !!}
             <div class="card">
                 {{--  <div class="card-header">
               <h3 class="card-title">General</h3>
             </div>  --}}
                 <div class="card-body">
 
-
-
                     <div class="form-group">
-                        {!! Form::label('anno', 'AÑO DEL PLAN DE DESARROLLO') !!}
-                        {!! Form::text('anno', null, [
+                        {!! Form::label('nomProd', 'NOMBRE TIPO DE PRODUCTO') !!}
+                        {!! Form::text('nomProd', null, [
                             'class' => 'form-control',
-                            'placeholder' => 'Ingrese el Año del Plan de Desarrollo',
+                            'placeholder' => 'Ingrese el Nombre del Tipo de Producto',
                         ]) !!}
-                        @error('anno')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('nomPD', 'NOMBRE PLAN DE DESARROLLO') !!}
-                        {!! Form::text('nomPD', null, [
-                            'class' => 'form-control',
-                            'placeholder' => 'Ingrese el Nombre del Plan de Desarrollo',
-                        ]) !!}
-                        @error('nomPD')
+                        @error('nomProd')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

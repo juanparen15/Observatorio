@@ -16,12 +16,12 @@ class SectorController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.sectores.index',
-            'permission:admin.sectores.store',
-            'permission:admin.sectores.create',
-            'permission:admin.sectores.update',
-            'permission:admin.sectores.destroy',
-            'permission:admin.sectores.edit'
+            // 'permission:admin.sectores.index',
+            // 'permission:admin.sectores.store',
+            // 'permission:admin.sectores.create',
+            // 'permission:admin.sectores.update',
+            // 'permission:admin.sectores.destroy',
+            // 'permission:admin.sectores.edit',
         ]);
     }
     public function index()

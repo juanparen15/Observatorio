@@ -15,12 +15,12 @@ class SubProgramaController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.subprogramas.store',
-            'permission:admin.subprogramas.index',
-            'permission:admin.subprogramas.create',
-            'permission:admin.subprogramas.update',
-            'permission:admin.subprogramas.destroy',
-            'permission:admin.subprogramas.edit'
+            // 'permission:admin.subprogramas.store',
+            // 'permission:admin.subprogramas.index',
+            // 'permission:admin.subprogramas.create',
+            // 'permission:admin.subprogramas.update',
+            // 'permission:admin.subprogramas.destroy',
+            // 'permission:admin.subprogramas.edit'
         ]);
     }
 

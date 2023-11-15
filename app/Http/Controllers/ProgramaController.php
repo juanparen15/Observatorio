@@ -16,12 +16,12 @@ class ProgramaController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.programas.store',
-            'permission:admin.programas.index',
-            'permission:admin.programas.create',
-            'permission:admin.programas.update',
-            'permission:admin.programas.destroy',
-            'permission:admin.programas.edit'
+            // 'permission:admin.programas.store',
+            // 'permission:admin.programas.index',
+            // 'permission:admin.programas.create',
+            // 'permission:admin.programas.update',
+            // 'permission:admin.programas.destroy',
+            // 'permission:admin.programas.edit',
         ]);
     }
     public function index()
@@ -57,8 +57,8 @@ class ProgramaController extends Controller
 
     public function edit(Programa $programa)
     {
-        $sectores = Sector::get();
-        return view('admin.programas.edit', compact('programa', 'sectores'));
+        $sector = Sector::get();
+        return view('admin.programas.edit', compact('programa', 'sector'));
     }
 
 

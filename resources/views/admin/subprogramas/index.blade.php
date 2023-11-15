@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Lista de Productos')
+@section('title','Lista de Sub Programas')
 @section('style')
 <!-- SweetAlert2 -->
 {!! Html::style('adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') !!}
@@ -20,7 +20,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                        <li class="breadcrumb-item active">Lista de Productos</li>
+                        <li class="breadcrumb-item active">Lista de Sub Programas</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,11 +33,11 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Lista de Productos</h3>
+                  <h3 class="card-title">Lista de Sub Programas</h3>
                   <div class="card-tools">
 
-                     <a href="{{route('admin.productos.create')}}" class="btn btn-primary">
-                        Agregar producto
+                     <a href="{{route('admin.subprogramas.create')}}" class="btn btn-primary">
+                        Agregar Sub Programas
                      </a>
                   </div>
                 </div>
@@ -78,7 +78,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'El Producto se Actualizo con Exito.'
+            title: 'El Sub Programa se Actualizo con Exito.'
         })
       });
 </script>
@@ -94,7 +94,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'El Producto se Creo con Exito.'
+            title: 'El Sub Programa se Creo con Exito.'
         })
       });
 </script>
@@ -103,7 +103,7 @@
 <script>
     Swal.fire(
         '¡Eliminado!',
-        'El Producto se Elimino con Exito.',
+        'El Sub Programa se Elimino con Exito.',
         'success'
       )
 </script>
@@ -143,15 +143,16 @@
 <script>
     $(function () {
         $('#example2').DataTable({
-            "serverSide": true,
-            "ajax": "{{url('api/products')}}",
+            // "serverSide": true,
+            // "ajax": "{{url('api/products')}}",
 
-            "columns":
-                [{data: 'id'},
-                {data: 'detproducto'},
-                {data: 'clase'},
-                {data: 'btn'},
-                ],
+            // "columns":
+            //     [{data: 'id'},
+            //     {data: 'programa'},
+            //     {data: 'codSP'},
+            //     {data: 'nomSP'},
+            //     {data: 'btn'},
+            //     ],
 
             "paging": true,
             "ordering": true,

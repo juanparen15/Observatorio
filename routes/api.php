@@ -1,6 +1,7 @@
 <?php
 
 use App\Producto;
+use App\SubPrograma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/products', function () {
-//         return datatables()->eloquent(Producto::query())
-//         ->addColumn('clase', function(Producto $user) {
+// Route::get('/subprograma', function () {
+//         return datatables()->eloquent(SubPrograma::query())
+//         ->addColumn('clase', function(SubPrograma $user) {
 //                 return $user->clase->detclase;
 //         })
 //         ->addColumn('btn', 'admin.productos._actions')

@@ -1,9 +1,9 @@
 @extends('layouts.login')
-@section('title','Login Inventario')
+@section('title','Login Observatorio')
 @section('content')
 <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{route('welcome')}}" class="h1"><b>Inventario Documental <script type="text/javascript">
+      <a href="{{route('welcome')}}" class="h1"><b>Observatorio <script type="text/javascript">
             document.write(new Date().getFullYear());
         </script></b></a>
     </div>

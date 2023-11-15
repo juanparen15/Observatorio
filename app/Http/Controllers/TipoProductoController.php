@@ -14,12 +14,12 @@ class TipoProductoController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.tipoproductos.store',
-            'permission:admin.tipoproductos.index',
-            'permission:admin.tipoproductos.create',
-            'permission:admin.tipoproductos.update',
-            'permission:admin.tipoproductos.destroy',
-            'permission:admin.tipoproductos.edit'
+            // 'permission:admin.tipoproductos.store',
+            // 'permission:admin.tipoproductos.index',
+            // 'permission:admin.tipoproductos.create',
+            // 'permission:admin.tipoproductos.update',
+            // 'permission:admin.tipoproductos.destroy',
+            // 'permission:admin.tipoproductos.edit'
         ]);
     }
     public function index()

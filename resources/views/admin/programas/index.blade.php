@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Lista Clase')
+@section('title','Lista Programa')
 @section('style')
 <!-- SweetAlert2 -->
 {!! Html::style('adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') !!}
@@ -20,7 +20,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                        <li class="breadcrumb-item active">Lista Clase</li>
+                        <li class="breadcrumb-item active">Lista Programa</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,11 +33,11 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Lista Clase</h3>
+                  <h3 class="card-title">Lista Programa</h3>
                   <div class="card-tools">
 
-                     <a href="{{route('admin.clases.create')}}" class="btn btn-primary">
-                        Agregar Clase
+                     <a href="{{route('admin.programas.create')}}" class="btn btn-primary">
+                        Agregar Programa
                      </a>
                   </div>
                 </div>
@@ -47,25 +47,27 @@
                     <thead>
                      <tr>
                         <th>ID</th>
-                        <th>NOMBRE CLASE</th>
-                        <th>NOMBRE FAMILIA</th>
+                        <th>SECTOR</th>
+                        <th>CODIGO PROGRAMA</th>
+                        <th>NOMBRE PROGRAMA</th>
                         <th>ACCIONES</th>
                       </tr>
                     </thead>
                     <tbody>
 
-                     @foreach ($clases as $clase)
+                     @foreach ($programas as $programa)
                      <tr>
-                       <td>{{$clase->id}}</td>
-                       <td>{{$clase->detclase}}</td>
-                       <td>{{$clase->familia->detfamilia}}</td>
+                       <td>{{$programa->id}}</td>
+                       <td>{{$programa->sector->nomS}}</td>
+                       <td>{{$programa->codProg}}</td>
+                       <td>{{$programa->nomProg}}</td>
                       
                        <td class="project-actions text-right">
-                           <form action="{{route('admin.clases.destroy',$clase)}}" method="POST">
+                           <form action="{{route('admin.programas.destroy',$programa)}}" method="POST">
                               @csrf
                                @method('delete')
 
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.clases.edit', $clase)}}">Editar</a>
+                               <a class="btn btn-primary btn-sm" href="{{route('admin.programas.edit', $programa)}}">Editar</a>
 
                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                            </form>
@@ -77,7 +79,7 @@
                   </table>
                 </div>
 
-                {{$clases->links()}}
+                {{$programas->links()}}
 
                 <!-- /.card-body -->
             </div>

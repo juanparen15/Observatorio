@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Lista Planes de Desarrollo')
+@section('title','Lista Tipo de Productos')
 @section('style')
 <!-- SweetAlert2 -->
 {!! Html::style('adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') !!}
@@ -20,7 +20,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                        <li class="breadcrumb-item active">Lista Planes de Desarrollo</li>
+                        <li class="breadcrumb-item active">Lista Tipo de Producto</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,11 +33,11 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Lista Planes de Desarrollo</h3>
+                  <h3 class="card-title">Lista Tipo de Productos</h3>
                   <div class="card-tools">
 
-                     <a href="{{route('admin.planesdesarrollo.create')}}" class="btn btn-primary">
-                        Agregar Plan de Desarrollo
+                     <a href="{{route('admin.tipoproductos.create')}}" class="btn btn-primary">
+                        Agregar Tipo de Producto
                      </a>
                   </div>
                 </div>
@@ -47,8 +47,7 @@
                     <thead>
                      <tr>
                         <th>ID</th>
-                        <th>AÑO DEL PLAN DE DESARROLLO</th>
-                        <th>NOMBRE DEL PLAN DE DESARROLLO</th>
+                        <th>NOMBRE DEL TIPO DE PRODUCTO</th>
                         <th>ACCIONES</th>
                      </tr>
                       {{--  <tr>
@@ -60,17 +59,16 @@
                       </tr>  --}}
                     </thead>
                     <tbody>
-                     @foreach ($planesdesarrollo as $plandesarrollo)
+                     @foreach ($tipoproductos as $tipoproducto)
                      <tr>
-                       <td>{{$plandesarrollo->id}}</td>
-                       <td>{{$plandesarrollo->anno}}</td>
-                       <td>{{$plandesarrollo->nomPD}}</td>
+                       <td>{{$tipoproducto->id}}</td>
+                       <td>{{$tipoproducto->nomProd}}</td>
                        <td >
-                           <form action="{{route('admin.planesdesarrollo.destroy',$plandesarrollo)}}" method="POST">
+                           <form action="{{route('admin.tipoproductos.destroy',$tipoproducto)}}" method="POST">
                               @csrf
                                @method('delete')
 
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.planesdesarrollo.edit', $plandesarrollo)}}">Editar</a>
+                               <a class="btn btn-primary btn-sm" href="{{route('admin.tipoproductos.edit', $tipoproducto)}}">Editar</a>
 
                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                            </form>
@@ -103,7 +101,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'El Plan se Actualizo con Exito.'
+            title: 'El Tipo de Producto se Actualizo con Exito.'
         })
       });
 </script>
@@ -119,7 +117,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'El plan se Creó con Exito.'
+            title: 'El Tipo de Producto se Creó con Exito.'
         })
       });
 </script>
@@ -128,7 +126,7 @@
 <script>
     Swal.fire(
         '¡Eliminado!',
-        'El Plan se Eliminó con Exito.',
+        'El Tipo de Producto se Eliminó con Exito.',
         'success'
       )
 </script>

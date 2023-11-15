@@ -124,6 +124,30 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.tipoproductos.index') }}"
+                            class="nav-link 
+            {!! active_class(route('admin.tipoproductos.index')) !!}
+            ">
+                            <i class="nav-icon fas fa-calendar-minus"></i>
+                            <p>
+                                Tipo de Productos
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.unidadmedidas.index') }}"
+                            class="nav-link 
+            {!! active_class(route('admin.unidadmedidas.index')) !!}
+            ">
+                            <i class="nav-icon fas fa-calendar-minus"></i>
+                            <p>
+                                Unidad de Medidas
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{ route('productos.index') }}"
                             class="nav-link 
             {!! active_class(route('productos.index')) !!}

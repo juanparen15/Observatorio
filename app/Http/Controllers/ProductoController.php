@@ -25,7 +25,7 @@ class ProductoController extends Controller
 
         $this->middleware([
             'auth',
-            'permission:productos.index'
+            // 'permission:productos.index',
         ]);
     }
 
@@ -207,7 +207,7 @@ class ProductoController extends Controller
     //     return redirect()->route('planadquisiciones.show', $planadquisicione)->with('flash','actualizado');
     // }
 
-    public function exportar_planadquisiciones_excel(Producto $producto)
+    public function exportar_productos_excel(Producto $producto)
     {
 
         return Excel::download(new ProductoExport($producto->id), 'Observatorio - ' . $producto->id . '.xlsx');

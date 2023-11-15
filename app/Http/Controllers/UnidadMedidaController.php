@@ -13,12 +13,12 @@ class UnidadMedidaController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            'permission:admin.unidadmedidas.store',
-            'permission:admin.unidadmedidas.index', 
-            'permission:admin.unidadmedidas.create',
-            'permission:admin.unidadmedidas.update',
-            'permission:admin.unidadmedidas.destroy',
-            'permission:admin.unidadmedidas.edit'
+            // 'permission:admin.unidadmedidas.store',
+            // 'permission:admin.unidadmedidas.index', 
+            // 'permission:admin.unidadmedidas.create',
+            // 'permission:admin.unidadmedidas.update',
+            // 'permission:admin.unidadmedidas.destroy',
+            // 'permission:admin.unidadmedidas.edit'
             ]);
     }
     public function index()
