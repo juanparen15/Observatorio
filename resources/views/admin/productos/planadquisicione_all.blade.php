@@ -1,55 +1,41 @@
 <table>
     <thead>
         <tr>
-            <th>NÚMERO DE ORDEN</th>
-            <th>ENTIDAD PRODUCTORA</th>
-            <th>UNIDAD ADMINISTRATIVA</th>
-            <th>OFICINA PRODUCTORA</th>
-            <th>OBJETO</th>
-            <th>CODIGO</th>
-            <th>NOMBRE DE LA SERIE</th>
-            <th>NOMBRE DE LA SUBSERIE O ASUNTOS</th>
-            <th>FECHA INICIAL</th>
-            <th>FECHA FINAL</th>
-            <th>CAJA</th>
-            <th>CARPETA</th>
-            <th>TOMO</th>
-            <th>OPCION OTRO</th>
-            <th>OTRO</th>
-            <th>NÚMERO DE FOLIOS</th>
-            <th>SOPORTE</th>
-            <th>FRECUENCIA DE CONSULTA</th>
-            <th>NOTAS</th>
-            <th>CORREO USUARIO INSTITUCIONAL</th>
-            <th>USUARIO INSTITUCIONAL</th>
-            <th>REGISTRO DE ENTRADA</th>
+            <th>NÚMERO DE CONSECUTIVO</th>
+            <th>PLAN DE DESARROLLO</th>
+            <th>SECTOR</th>
+            <th>PROGRAMA</th>
+            <th>SUB PROGRAMA</th>
+            <th>TIPO DE PRODUCTO</th>
+            <th>UNIDAD DE MEDIDA</th>
+            <th>UNIDAD DE MEDIDA</th>
+            <th>TIPO DE PRODUCTO</th>
+            <th>USUARIO</th>
+            <th>CODIGO DEL PRODUCTO</th>
+            <th>NOMBRE DEL PRODUCTO</th>
+            <th>INDICADOR BASE</th>
+            <th>META CUATRIENIA</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($planadquisiciones as $planadquisicion)
+        @foreach ($productos as $producto)
             <tr>
-                <td>{{ $planadquisicion->id }}</td>
+                <td>{{ $producto->id }}</td>
                 <td>ALCALDIA MUNICIPAL DE PUERTO BOYACA, BOYACA</td>
-                <td>{{ $planadquisicion->area->dependencia->nomdependencia }}</td>
-                <td>{{ $planadquisicion->area->nomarea }}</td>
-                <td>{{ $planadquisicion->modalidad->detmodalidad }}</td>
-                <td>{{ $planadquisicion->requiproyecto->detproyeto }}</td>
-                <td>{{ $planadquisicion->segmento->detsegmento }}</td>
-                <td>{{ $planadquisicion->familias->detfamilia }}</td>
-                <td>{{ $planadquisicion->fechaInicial }}</td>
-                <td>{{ $planadquisicion->fechaFinal }}</td>
-                <td>{{ $planadquisicion->caja }}</td>
-                <td>{{ $planadquisicion->carpeta }}</td>
-                <td>{{ $planadquisicion->tomo }}</td>
-                <td>{{ $planadquisicion->requipoais->detpoai }}</td>
-                <td>{{ $planadquisicion->otro }}</td>
-                <td>{{ $planadquisicion->folio }}</td>
-                <td>{{ $planadquisicion->fuente->detfuente }}</td>
-                <td>{{ $planadquisicion->tipoprioridade->detprioridad }}</td>
-                <td>{{ $planadquisicion->nota }}</td>
-                <td>{{ $planadquisicion->user->email }}</td>
-                <td>{{ $planadquisicion->user->name }}</td>
-                <td>{{ $planadquisicion->updated_at }}</td>
+                <td>{{ $producto->plandesarrollo->nomPD }}</td>
+                <td>{{ $producto->sector->nomS }}</td>
+                <td>{{ $producto->programa->nomProg }}</td>
+                <td>{{ $producto->subprograma->nomSP }}</td>
+                <td>{{ $producto->tipoproducto->nomProd }}</td>
+                <td>{{ $producto->unidadmedida->nomUMed }}</td>
+                <td>{{ $producto->user->area->nomA }}</td>
+                <td>{{ $producto->codProd }}</td>
+                <td>{{ $producto->nomProd }}</td>
+                <td>{{ $producto->iB }}</td>
+                <td>{{ $producto->mCuatrienia }}</td>
+                <td>{{ $producto->user->email }}</td>
+                <td>{{ $producto->user->name }}</td>
+                <td>{{ $producto->updated_at }}</td>
                 <td>
 
                     {{-- @foreach ($planadquisicion->productos as $item)

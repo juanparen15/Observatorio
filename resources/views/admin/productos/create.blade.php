@@ -31,7 +31,7 @@
 
         <!-- Main content -->
         <section class="content">
-            {!! Form::open(['route' => 'productos.store', 'method' => 'POST']) !!}
+            {!! Form::open(['route' => 'admin.productos.store', 'method' => 'POST']) !!}
             <div class="card">
                 <div class="card-body">
 
@@ -249,15 +249,15 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label>IB</label>
+                            <label>INDICADOR BASE</label>
                             <div class="form-group mb-3">
                                 <input placeholder="Escriba el IB del producto" type="text" class="form-control"
-                                    name="IB" id="IB" required>
+                                    name="iB" id="iB" required>
                             </div>
                         </div>
 
                         <div class="col-md-4">
-                            <label>M. CUATRIENIA</label>
+                            <label>META CUATRIENIA</label>
                             <div class="form-group mb-3">
                                 <input placeholder="Escriba la Cuatrenia del producto" type="text" class="form-control"
                                     name="mCuatrienia" id="mCuatrienia" required>

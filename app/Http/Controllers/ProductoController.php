@@ -23,10 +23,11 @@ class ProductoController extends Controller
     public function __construct()
     {
 
-        $this->middleware([
-            'auth',
-            // 'permission:productos.index',
-        ]);
+        $this->middleware('auth');
+        // $this->middleware([
+        //     'auth',
+        //     // 'permission:productos.index',
+        // ]);
     }
 
     public function showOnlyAdmin()
@@ -85,8 +86,7 @@ class ProductoController extends Controller
             'codProd' => ['required'],
             'nomProd' => ['required'],
             'iB' => ['required'],
-            'mCuatrienia' => ['required']
-
+            'mCuatrienia' => ['required'],
         ]);
 
 

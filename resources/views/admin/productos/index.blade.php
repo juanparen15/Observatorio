@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Listado Inventario')
+@section('title', 'Listado Observatorio')
 @section('style')
     <!-- SweetAlert2 -->
     {!! Html::style('adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') !!}
@@ -20,7 +20,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item active">Listado Inventario</li>
+                            <li class="breadcrumb-item active">Listado Observatorio</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -33,7 +33,7 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Listado Inventario</h3>
+                        <h3 class="card-title">Listado Observatorio</h3>
 
                         <div class="card-tools">
 
@@ -63,11 +63,11 @@
                                 @endif
                             @endif --}}
 
-                            <a href="{{ route('planadquisiciones.create') }}" class="btn btn-primary">
-                                <i class="fas fa-parking"></i> Agregar Nuevo Inventario
+                            <a href="{{ route('admin.productos.create') }}" class="btn btn-primary">
+                                <i class="fas fa-parking"></i> Agregar Nuevo Observatorio
                             </a>
-                            @can('planadquisiciones.export')
-                                <a href="{{ route('planadquisiciones.export') }}" class="btn btn-success">
+                            @can('productos.export')
+                                <a href="{{ route('productos.export') }}" class="btn btn-success">
                                     <i class="far fa-file-excel"></i> <i class="fas fa-file-export"></i> Exportar Todo
                                 </a>
                             @endcan
@@ -77,28 +77,24 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive">
-                        
+
                         <table id="example2" class="table table-hover text-nowrap" style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th>NÚMERO DE ORDEN</th>
-                                    <th>UNIDAD ADMINISTRATIVA</th>
-                                    <th>OFICINA PRODUCTORA</th>
-                                    <th>OBJETO</th>
-                                    <th>CODIGO</th>
-                                    <th>NOMBRE DE LA SERIE</th>
-                                    <th>NOMBRE DE LA SUBSERIE O ASUNTOS</th>
-                                    <th>FECHA INICIAL</th>
-                                    <th>FECHA FINAL</th>
-                                    <th>CAJA</th>
-                                    <th>CARPETA</th>
-                                    <th>TOMO</th>
-                                    <th>OPCION OTRO</th>
-                                    <th>OTRO</th>
-                                    <th>NÚMERO DE FOLIOS</th>
-                                    <th>SOPORTE</th>
-                                    <th>FRECUENCIA DE CONSULTA</th>
-                                    <th>NOTAS</th>
+                                    <th>NÚMERO DE CONSECUTIVO</th>
+                                    <th>PLAN DE DESARROLLO</th>
+                                    <th>SECTOR</th>
+                                    <th>PROGRAMA</th>
+                                    <th>SUB PROGRAMA</th>
+                                    <th>TIPO DE PRODUCTO</th>
+                                    <th>UNIDAD DE MEDIDA</th>
+                                    <th>UNIDAD DE MEDIDA</th>
+                                    <th>TIPO DE PRODUCTO</th>
+                                    <th>USUARIO</th>
+                                    <th>CODIGO DEL PRODUCTO</th>
+                                    <th>NOMBRE DEL PRODUCTO</th>
+                                    <th>INDICADOR BASE</th>
+                                    <th>META CUATRIENIA</th>
                                     <th>ACCIONES</th>
                                 </tr>
                             </thead>
@@ -106,53 +102,46 @@
 
 
 
-                                @foreach ($planadquisiciones as $planadquisicion)
+                                @foreach ($productos as $producto)
                                     <tr>
-                                        <td>{{ $planadquisicion->id }}</td>
-                                        <td>{{ $planadquisicion->area->dependencia->nomdependencia }}</td>
-                                        <td>{{ $planadquisicion->area->nomarea }}</td>
-                                        <td>{{ $planadquisicion->modalidad->detmodalidad }}</td>
-                                        <td>{{ $planadquisicion->requiproyecto->detproyeto }}</td>
-                                        <td>{{ $planadquisicion->segmento->detsegmento }}</td>
-                                        <td>{{ $planadquisicion->familias->detfamilia }}</td>
-                                        <td>{{ $planadquisicion->fechaInicial }}</td>
-                                        <td>{{ $planadquisicion->fechaFinal }}</td>
-                                        <td>{{ $planadquisicion->caja }}</td>
-                                        <td>{{ $planadquisicion->carpeta }}</td>
-                                        <td>{{ $planadquisicion->tomo }}</td>
-                                        <td>{{ $planadquisicion->requipoais->detpoai }}</td>
-                                        <td>{{ $planadquisicion->otro }}</td>
-                                        <td>{{ $planadquisicion->folio }}</td>
-                                        <td>{{ $planadquisicion->fuente->detfuente }}</td>
-                                        <td>{{ $planadquisicion->tipoprioridade->detprioridad }}</td>
-                                        <td>{{ $planadquisicion->nota }}</td>
+                                        <td>{{ $producto->id }}</td>
+                                        <td>{{ $producto->plandesarrollo->nomPD }}</td>
+                                        <td>{{ $producto->sector->nomS }}</td>
+                                        <td>{{ $producto->programa->nomProg }}</td>
+                                        <td>{{ $producto->subprograma->nomSP }}</td>
+                                        <td>{{ $producto->tipoproducto->nomProd }}</td>
+                                        <td>{{ $producto->unidadmedida->nomUMed }}</td>
+                                        <td>{{ $producto->user->area->nomA }}</td>
+                                        <td>{{ $producto->codProd }}</td>
+                                        <td>{{ $producto->nomProd }}</td>
+                                        <td>{{ $producto->iB }}</td>
+                                        <td>{{ $producto->mCuatrienia }}</td>
                                         <td>
-                                            <form action="{{ route('planadquisiciones.destroy', $planadquisicion) }}"
-                                                method="POST">
+                                            <form action="{{ route('productos.destroy', $producto) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
 
-                                                @can('exportar_planadquisiciones_excel')
+                                                @can('exportar_productos_excel')
                                                     <a class="btn btn-success btn-sm"
-                                                        href="{{ route('exportar_planadquisiciones_excel', $planadquisicion) }}">
+                                                        href="{{ route('exportar_productos_excel', $producto) }}">
                                                         <i class="far fa-file-excel"></i> Exportar
                                                     </a>
                                                 @endcan
 
-                                                @can('planadquisiciones.show')
+                                                @can('productos.show')
                                                     <a class="btn btn-info btn-sm"
-                                                        href="{{ route('planadquisiciones.show', $planadquisicion) }}">Detalles</a>
+                                                        href="{{ route('productos.show', $producto) }}">Detalles</a>
                                                 @endcan
 
 
-                                                {{-- @can('planadquisiciones.edit') --}}
-                                                <a class="btn btn-primary btn-sm"
-                                                    href="{{ route('planadquisiciones.edit', $planadquisicion) }}">Editar</a>
-                                                {{-- @endcan --}}
+                                                @can('productos.edit')
+                                                    <a class="btn btn-primary btn-sm"
+                                                        href="{{ route('productos.edit', $producto) }}">Editar</a>
+                                                @endcan
 
-                                                {{-- @can('planadquisiciones.destroy')
+                                                @can('productos.destroy')
                                                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                                @endcan --}}
+                                                @endcan
                                             </form>
                                         </td>
                                     </tr>
@@ -160,7 +149,7 @@
 
                             </tbody>
                         </table>
-                        {{ $planadquisiciones->links() }}
+                        {{ $productos->links() }}
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -185,7 +174,7 @@
                 });
                 Toast.fire({
                     icon: 'success',
-                    title: 'El Inventario Documental se creó con exito.'
+                    title: 'El Producto se creó con exito.'
                 })
             });
         </script>
@@ -201,7 +190,7 @@
                 });
                 Toast.fire({
                     icon: 'success',
-                    title: 'El Inventario Documental se actualizó con exito.'
+                    title: 'El Producto se actualizó con exito.'
                 })
             });
         </script>
@@ -210,7 +199,7 @@
         <script>
             Swal.fire(
                 '¡Eliminado!',
-                'El Inventario Documental se eliminó con exito.',
+                'El Producto se eliminó con exito.',
                 'success'
             )
         </script>
