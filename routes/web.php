@@ -4,6 +4,7 @@ use App\Empresa;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ChartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PowerBiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,11 +54,12 @@ Route::resource('unidadmedidas', 'UnidadMedidaController')->except([
 
 
 Route::resource('productos', 'ProductoController')->names('productos');
+
 // route::get('retirar_producto/{planadquisicione}/de/{producto}', 'PlanadquisicioneController@retirar_producto')->name('retirar_producto');
 Route::get('exportar_productos_excel/{producto}', 'ProductoController@exportar_productos_excel')->name('exportar_productos_excel');
-Route::resource('productos', 'ProductoController')->except([
-    'show', 'destroy'
-])->names('admin.productos');
+// Route::resource('productos', 'ProductoController')->except([
+//     'show', 'destroy'
+// ])->names('admin.productos');
 Route::get('importar_datos', function () {
     return view('admin.importar_datos');
 })->name('importar_datos');
@@ -85,6 +87,18 @@ Route::post('programas_import', 'ImportExcelController@programas_import')->name(
 Route::post('subprogramas_import', 'ImportExcelController@subprogramas_import')->name('subprogramas.import.excel');
 
 //new
+Route::get('admin/sectores/{id}/editar', 'SectorController@edit')->name('admin.sectores.edit');
+Route::get('admin/sectores/create', 'SectorController@create')->name('admin.sectores.create');
+Route::delete('admin/sectores/{sector}', 'SectorController@destroy')->name('admin.sectores.destroy');
+
+// Route::get('admin/programas/create', 'ProgramaController@create')->name('admin.programas.create');
+
+
+
+
+
+
+
 Route::get('producto-export', 'ProductoController@export')->name('productos.export');
 Route::put('update-profile/{user}', 'UserController@updateProfile')->name('update.profile');
 Route::get('producto/areas/{areaId}', 'ProductoController@indexByArea')->name('productos.indexByArea');
@@ -95,3 +109,4 @@ Route::get('producto/areas/{areaId}', 'ProductoController@indexByArea')->name('p
 // Route::get('/chart', 'ChartController@handleChart')->name('inventarioDocumental.handleChart');
 // Route::get('/chart', [ChartController::class, 'chart'])->name('/chart');
 // Route::get('home', [HomeController::class, 'index']);
+Route::get('/enviar-datos-en-tiempo-real', [PowerBiController::class, 'enviarDatosEnTiempoReal']);

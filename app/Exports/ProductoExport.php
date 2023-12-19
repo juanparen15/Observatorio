@@ -21,7 +21,7 @@ class ProductoExport implements FromView
     public function view(): View
     {
         $plan = Producto::find($this->id);
-        return view('admin.producto.plantilla_de_excel', [
+        return view('admin.productos.plantilla_de_excel', [
             'plan' => $plan
         ]);
     }

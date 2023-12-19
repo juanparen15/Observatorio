@@ -41,27 +41,27 @@ class PlanDesarrolloController extends Controller
         PlanDesarrollo::create([
             'anno' => $request->anno,
             'nomPD' => $request->nomPD,
-            'slug' => Str::slug($request->nomPD, '-')
+            'slug' => Str::slug($request->nomPD, '-'),
         ]);
         return redirect()->route('admin.plandesarrollo.index')->with('flash', 'registrado');
     }
 
 
-    public function show(PlanDesarrollo $planesdesarrollo)
+    public function show(PlanDesarrollo $plandesarrollo)
     {
-        return view('admin.plandesarrollo.show', compact('planesdesarrollo'));
+        return view('admin.plandesarrollo.show', compact('plandesarrollo'));
     }
 
 
-    public function edit(PlanDesarrollo $planesdesarrollo)
+    public function edit(PlanDesarrollo $plandesarrollo)
     {
-        return view('admin.plandesarrollo.edit', compact('planesdesarrollo'));
+        return view('admin.plandesarrollo.edit', compact('plandesarrollo'));
     }
 
 
-    public function update(UpdateRequest $request, PlanDesarrollo $planesdesarrollo)
+    public function update(UpdateRequest $request, PlanDesarrollo $plandesarrollo)
     {
-        $planesdesarrollo->update([
+        $plandesarrollo->update([
             'anno' => $request->anno,
             'nomPD' => $request->nomPD,
             'slug' => Str::slug($request->nomPD, '-')
@@ -70,9 +70,9 @@ class PlanDesarrolloController extends Controller
     }
 
 
-    public function destroy(PlanDesarrollo $planesdesarrollo)
+    public function destroy(PlanDesarrollo $plandesarrollo)
     {
-        $planesdesarrollo->delete();
+        $plandesarrollo->delete();
         return redirect()->route('admin.plandesarrollo.index')->with('flash', 'eliminado');
     }
 }

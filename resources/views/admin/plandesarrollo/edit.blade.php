@@ -18,7 +18,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.planesdesarrollo.index') }}">Lista Planes de
+                            <li class="breadcrumb-item"><a href="{{ route('admin.plandesarrollo.index') }}">Lista Planes de
                                     Desarrollo</a></li>
                             <li class="breadcrumb-item active">Editar Plan</li>
                         </ol>
@@ -29,7 +29,14 @@
 
         <!-- Main content -->
         <section class="content">
-            {!! Form::model($plan, ['route' => ['admin.planesdesarrollo.update', $plan], 'method' => 'PUT']) !!}
+            {!! Form::model($plandesarrollo, [
+                'route' => isset($plandesarrollo)
+                    ? ['admin.plandesarrollo.update', $plandesarrollo]
+                    : 'admin.plandesarrollo.update',
+                'method' => 'PUT',
+            ]) !!}
+
+            @csrf
             <div class="card card-primary">
                 {{--  <div class="card-header">
               <h3 class="card-title">General</h3>

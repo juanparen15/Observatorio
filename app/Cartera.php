@@ -15,7 +15,7 @@ class Cartera extends Model
     } 
 
     //Relacion Uno a Muchos 
-    public function areas(){
+    public function area(){
         return $this->hasMany(Area::class);
     }
 }

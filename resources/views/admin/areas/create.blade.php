@@ -65,10 +65,10 @@
             </div>  --}}
 
             <div class="form-group">
-                <label for="fK_car">DEPENDENCIA</label>
+                <label for="fK_car">CARTERA</label>
                 <select class="select2 @error('fK_car') is-invalid @enderror" name="fK_car" id="fK_car" style="width: 100%;">
 
-                    <option disabled selected>Selecciona una dependencia</option>
+                    <option disabled selected>Selecciona una cartera</option>
                     @foreach ($cartera as $cartera)
                         <option value="{{ $cartera->id }}"
                         {{ old('fK_car') == $cartera->id ? 'selected' : ''}}

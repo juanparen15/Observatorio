@@ -18,7 +18,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('planadquisiciones.index') }}">Inventario </a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('productos.index') }}">Inventario </a></li>
                             <li class="breadcrumb-item active">Detalles de Inventario</li>
                         </ol>
                     </div>
@@ -38,35 +38,35 @@
                     <div class="row">
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>NUMERO DE ORDEN:</strong><br>
-                                {{ $inventario->id }}
+                                <strong>NÚMERO DE CONSECUTIVO:</strong><br>
+                                {{ $producto->id }}
                             </address>
                         </div>
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>ENTIDAD PRODUCTORA:</strong><br>
-                                {{ $inventario->area->dependencia->nomdependencia }}
+                                <strong>PLAN DE DESARROLLO:</strong><br>
+                                {{ $producto->subprograma->programa->sector->plandesarrollo->nomPD }}
                             </address>
                         </div>
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>UNIDAD ADMINISTRATIVA:</strong><br>
-                                {{ $inventario->area->nomarea }}
+                                <strong>SECTOR:</strong><br>
+                                {{ $producto->subprograma->programa->sector->nomS }}
                             </address>
                         </div>
 
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>OBJETO:</strong><br>
-                                {{ $inventario->modalidad->detmodalidad }}
+                                <strong>PROGRAMA:</strong><br>
+                                {{ $producto->subprograma->programa->nomProg }}
                             </address>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>CODIGO DE DEPENDENCIA:</strong><br>
-                                {{ $inventario->requiproyecto->detproyeto }}
+                                <strong>SUB PROGRAMA:</strong><br>
+                                {{ $producto->subprograma->nomSP }}
                             </address>
                         </div>
                         <!-- /.col -->
@@ -74,99 +74,69 @@
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>TIPO DE SERIES DOCUMENTALES:</strong><br>
-                                {{ $inventario->segmento->detsegmento }}
+                                <strong>TIPO DE PRODUCTO:</strong><br>
+                                {{ $producto->tipoproducto->nomProd }}
                             </address>
                         </div>
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>TIPO DE SUBSERIE DOCUMENTAL:</strong><br>
-                                {{ $inventario->familias->detfamilia }}
+                                <strong>UNIDAD DE MEDIDA:</strong><br>
+                                {{ $producto->unidadmedida->nomUMed }}
                             </address>
                         </div>
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>FECHAS EXTREMAS | FECHA INICIAL:</strong><br>
-                                {{ $inventario->fechaInicial }}
+                                <strong>USUARIO:</strong><br>
+                                {{ $producto->user->name }}
                             </address>
                         </div>
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>FECHAS EXTREMAS | FECHA FINAL:</strong><br>
-                                {{ $inventario->fechaFinal }}
+                                <strong>AREA:</strong><br>
+                                {{ $producto->user->area->nomA }}
                             </address>
                         </div>
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>UNIDAD DE CONSERVACIÓN | CAJA:</strong><br>
-                                {{ $inventario->caja }}
+                                <strong>CARTERA:</strong><br>
+                                {{ $producto->user->area->cartera->nomCar }}
                             </address>
                         </div>
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>UNIDAD DE CONSERVACIÓN | CARPETA:</strong><br>
-                                {{ $inventario->carpeta }}
-                            </address>
-                        </div>
-
-
-                        <div class="col-sm-4 invoice-col">
-                            <address>
-                                <strong>UNIDAD DE CONSERVACIÓN | TOMO:</strong><br>
-                                {{ $inventario->tomo }}
-                            </address>
-                        </div>
-
-                        <div class="col-sm-4 invoice-col">
-                            <address>
-                                <strong>OPCION OTRO:</strong><br>
-                                {{ $inventario->requipoais->detpoai }}
-                            </address>
-                        </div>
-
-                        <div class="col-sm-4 invoice-col">
-                            <address>
-                                <strong>UNIDAD DE CONSERVACIÓN | OTRO:</strong><br>
-                                {{ $inventario->otro }}
-                            </address>
-                        </div>
-
-                        <div class="col-sm-4 invoice-col">
-                            <address>
-                                <strong>NUMERO DE FOLIOS:</strong><br>
-                                {{ $inventario->folio }}
-                            </address>
-                        </div>
-
-                        <div class="col-sm-4 invoice-col">
-                            <address>
-                                <strong>FUENTE DE LOS RECURSOS:</strong><br>
-                                {{ $inventario->fuente->detfuente }}
+                                <strong>CODIGO DEL PRODUCTO:</strong><br>
+                                {{ $producto->codProd }}
                             </address>
                         </div>
 
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>FRECUENCIA DE CONSULTA:</strong><br>
-                                {{ $inventario->tipoprioridade->detprioridad }}
+                                <strong>NOMBRE DEL PRODUCTO:</strong><br>
+                                {{ $producto->nomProd }}
                             </address>
                         </div>
 
                         <div class="col-sm-4 invoice-col">
                             <address>
-                                <strong>NOTAS:</strong><br>
-                                {{ $inventario->nota }}
+                                <strong>INDICADOR BASE:</strong><br>
+                                {{ $producto->iB }}
                             </address>
                         </div>
-                    </div>
 
-                    {{-- <div class="form-group">
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong>META CUATRIENIA:</strong><br>
+                                {{ $producto->mCuatrienia }}
+                            </address>
+                        </div>
+
+                        {{-- <div class="form-group">
                     <table class="table">
                         <thead class="thead-inverse">
                             <tr>
@@ -194,22 +164,22 @@
                     </table>
                 </div>
             </div> --}}
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-                <div class="row">
-                    <div class="col-12 mb-2">
-                        <a href="{{ URL::previous() }}" class="btn btn-secondary">Cancel</a>
-                        <a href="{{ route('planadquisiciones.index') }}" class="btn btn-success">Finalizar</a>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <a href="{{ URL::previous() }}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{ route('productos.index') }}" class="btn btn-success">Finalizar</a>
 
 
-                        {{-- @can('agregar_producto')
+                            {{-- @can('agregar_producto')
             <a class="btn btn-primary float-right" href="{{route('agregar_producto', $planadquisicione)}}">
                  Agregar producto
              </a>
             @endcan  --}}
 
-                    </div>
+                        </div>
 
         </section>
         <!-- /.content -->
@@ -232,7 +202,7 @@
         })
     </script>
 
-    <script>
+    {{-- <script>
         function RefrescaProducto() {
             var ip = [];
             var i = 0;
@@ -303,5 +273,5 @@
             $("#modal-default").modal('hide'); //ocultamos el modal
 
         }
-    </script>
+    </script> --}}
 @endsection

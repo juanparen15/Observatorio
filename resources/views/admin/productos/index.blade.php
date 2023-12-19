@@ -63,7 +63,7 @@
                                 @endif
                             @endif --}}
 
-                            <a href="{{ route('admin.productos.create') }}" class="btn btn-primary">
+                            <a href="{{ route('productos.create') }}" class="btn btn-primary">
                                 <i class="fas fa-parking"></i> Agregar Nuevo Observatorio
                             </a>
                             @can('productos.export')
@@ -88,9 +88,9 @@
                                     <th>SUB PROGRAMA</th>
                                     <th>TIPO DE PRODUCTO</th>
                                     <th>UNIDAD DE MEDIDA</th>
-                                    <th>UNIDAD DE MEDIDA</th>
-                                    <th>TIPO DE PRODUCTO</th>
                                     <th>USUARIO</th>
+                                    <th>AREA</th>
+                                    <th>CARTERA</th>
                                     <th>CODIGO DEL PRODUCTO</th>
                                     <th>NOMBRE DEL PRODUCTO</th>
                                     <th>INDICADOR BASE</th>
@@ -100,18 +100,18 @@
                             </thead>
                             <tbody>
 
-
-
                                 @foreach ($productos as $producto)
                                     <tr>
                                         <td>{{ $producto->id }}</td>
-                                        <td>{{ $producto->plandesarrollo->nomPD }}</td>
-                                        <td>{{ $producto->sector->nomS }}</td>
-                                        <td>{{ $producto->programa->nomProg }}</td>
+                                        <td>{{ $producto->subprograma->programa->sector->plandesarrollo->nomPD }}</td>
+                                        <td>{{ $producto->subprograma->programa->sector->nomS }}</td>
+                                        <td>{{ $producto->subprograma->programa->nomProg }}</td>
                                         <td>{{ $producto->subprograma->nomSP }}</td>
                                         <td>{{ $producto->tipoproducto->nomProd }}</td>
                                         <td>{{ $producto->unidadmedida->nomUMed }}</td>
+                                        <td>{{ $producto->user->name }}</td>
                                         <td>{{ $producto->user->area->nomA }}</td>
+                                        <td>{{ $producto->user->area->cartera->nomCar }}</td>
                                         <td>{{ $producto->codProd }}</td>
                                         <td>{{ $producto->nomProd }}</td>
                                         <td>{{ $producto->iB }}</td>
@@ -133,15 +133,15 @@
                                                         href="{{ route('productos.show', $producto) }}">Detalles</a>
                                                 @endcan
 
-
+{{-- 
                                                 @can('productos.edit')
                                                     <a class="btn btn-primary btn-sm"
                                                         href="{{ route('productos.edit', $producto) }}">Editar</a>
-                                                @endcan
-
+                                                @endcan --}}
+{{-- 
                                                 @can('productos.destroy')
                                                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                                @endcan
+                                                @endcan --}}
                                             </form>
                                         </td>
                                     </tr>

@@ -16,12 +16,12 @@ class SectorController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            // 'permission:admin.sectores.index',
-            // 'permission:admin.sectores.store',
-            // 'permission:admin.sectores.create',
-            // 'permission:admin.sectores.update',
-            // 'permission:admin.sectores.destroy',
-            // 'permission:admin.sectores.edit',
+            'permission:admin.sectores.index',
+            'permission:admin.sectores.store',
+            'permission:admin.sectores.create',
+            'permission:admin.sectores.update',
+            'permission:admin.sectores.destroy',
+            'permission:admin.sectores.edit',
         ]);
     }
     public function index()
@@ -32,8 +32,8 @@ class SectorController extends Controller
 
     public function create()
     {
-        $planesdesarrollo = PlanDesarrollo::get();
-        return view('admin.sectores.create', compact('planesdesarrollo'));
+        $plandesarrollo = PlanDesarrollo::get();
+        return view('admin.sectores.create', compact('plandesarrollo'));
     }
 
     public function store(StoreRequest $request)
@@ -48,15 +48,17 @@ class SectorController extends Controller
     }
 
 
-    public function show(Sector $sector)
-    {
-        return view('admin.sectores.show', compact('sector'));
-    }
+    // public function show(Sector $sector)
+    // {
+    //     return view('admin.sectores.show', compact('sector'));
+    // }
 
-    public function edit(Sector $sector)
+    public function edit(Sector $sector, $id)
     {
-        $planesdesarrollo = PlanDesarrollo::get();
-        return view('admin.sectores.edit', compact('sector', 'planesdesarrollo'));
+        // dd($sectores);
+        $sector = Sector::findOrFail($id);
+        $plandesarrollo = PlanDesarrollo::get();
+        return view('admin.sectores.edit', compact('sector', 'plandesarrollo'));
     }
 
 
@@ -66,7 +68,7 @@ class SectorController extends Controller
             'codS' => $request->codS,
             'nomS' => $request->nomS,
             'slug' => Str::slug($request->codS, '-'),
-            'fK_pDes' => $request->fK_pDes
+            'fK_pDes' => $request->fK_pDes,
         ]);
         return redirect()->route('admin.sectores.index')->with('flash', 'actualizado');
     }
@@ -76,4 +78,5 @@ class SectorController extends Controller
         $sector->delete();
         return redirect()->route('admin.sectores.index')->with('flash', 'eliminado');
     }
+    
 }

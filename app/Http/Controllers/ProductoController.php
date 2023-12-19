@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Area;
-use App\Sector;
-use App\Programa;
 use App\SubPrograma;
-use App\User;
 use App\Exports\ProductoAllExport;
 use App\Exports\ProductoExport;
 use App\Producto;
@@ -16,7 +13,7 @@ use App\UnidadMedida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Support\Facades\DB;
+
 
 class ProductoController extends Controller
 {
@@ -41,6 +38,9 @@ class ProductoController extends Controller
 
     public function index()
     {
+        // $plandesarrollo = PlanDesarrollo::get();
+
+
 
         if (auth()->user()->hasRole('Admin')) {
             $productos = Producto::paginate(13);
@@ -71,6 +71,10 @@ class ProductoController extends Controller
         $tipoproductos = TipoProducto::get();
         $unidadmedidas = UnidadMedida::get();
         $areas = collect([$userArea]); // Crear una colección con el área del usuario
+        // $programa = Programa::all();
+        // $sector = Sector::all();
+        // $plandesarrollo = PlanDesarrollo::all();
+
         // $requiproyectos = Requiproyecto::get();
         // $requiproyectos = Requiproyecto::where('areas_id', auth()->user()->area->id)->pluck('detproyeto', 'id');
         return view('admin.productos.create', compact('subprogramas', 'tipoproductos', 'unidadmedidas', 'areas'));
@@ -78,18 +82,32 @@ class ProductoController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'fK_sProg' => ['required'],
             'fK_tProd' => ['required'],
             'fK_uMed' => ['required'],
-            'fK_user' => ['required'],
+            // 'fK_user' => ['required'],
             'codProd' => ['required'],
             'nomProd' => ['required'],
             'iB' => ['required'],
             'mCuatrienia' => ['required'],
         ]);
 
-
+        // try {
+        //     $request->validate([
+        //         'fK_sProg' => ['required'],
+        //         'fK_tProd' => ['required'],
+        //         'fK_uMed' => ['required'],
+        //         'fK_user' => ['required'],
+        //         'codProd' => ['required'],
+        //         'nomProd' => ['required'],
+        //         'iB' => ['required'],
+        //         'mCuatrienia' => ['required'],
+        //     ]);
+        // } catch (ValidationException $e) {
+        //     dd($e->validator->errors()->all());
+        // }
 
         $slug = Str::slug($request->nomProd);
 
@@ -109,7 +127,6 @@ class ProductoController extends Controller
             'fK_user' => auth()->user()->id,
             'slug' => $slugWithId  // Utiliza el slug con el ID agregado
         ]));
-
         return redirect()->route('productos.index')->with('flash', 'registrado');
     }
 
@@ -121,16 +138,32 @@ class ProductoController extends Controller
 
     public function show(Producto $producto)
     {
+
+        // $producto = Producto::with('subprogramas', 'tipoproductos', 'unidadmedidas', 'areas', 'usuarios', 'subprogramas.programa.sector.planDesarrollo')
+        //     ->find($producto);
         $productos = Producto::with(
-            'subprogramas',
-            'tipoproductos',
-            'unidadmedidas',
-            'areas',
-            'usuarios'
+            'subprograma',
+            'tipoproducto',
+            'unidadmedida',
+            'area',
+            'user'
         )
             ->find($producto);
 
+        // Acceder a la información del plan de desarrollo
+        // $planDesarrolloNombre = $producto->subprogramas->programa->sector->planDesarrollo->nomPD;
+
+        // Acceder a la información del sector
+        // $sectorNombre = $producto->subprogramas->programa->sector->nomS;
+
+        // Acceder a la información del programa
+        // $programaNombre = $producto->subprogramas->programa->nomProg;
+
+        // Acceder a la información del subprograma
+        // $subprogramaNombre = $producto->subprogramas->nomSP;
+
         return view('admin.productos.show', compact('producto'));
+        // return view('admin.productos.show', compact('producto', 'planDesarrolloNombre', 'sectorNombre', 'programaNombre', 'subprogramaNombre'));
     }
 
     public function edit(Producto $producto)
@@ -140,6 +173,7 @@ class ProductoController extends Controller
         $subprogramas = SubPrograma::get();
         $tipoproductos = TipoProducto::get();
         $unidadmedidas = UnidadMedida::get();
+        $areas = collect([$userArea]); // Crear una colección con el área del usuario
         // $requiproyectos = Requiproyecto::where('areas_id', auth()->user()->area->id)->pluck('detproyeto', 'id');
 
         return view('admin.productos.edit', compact(

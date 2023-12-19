@@ -16,24 +16,26 @@ class ProgramaController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            // 'permission:admin.programas.store',
-            // 'permission:admin.programas.index',
-            // 'permission:admin.programas.create',
-            // 'permission:admin.programas.update',
-            // 'permission:admin.programas.destroy',
-            // 'permission:admin.programas.edit',
+            'permission:admin.programas.store',
+            'permission:admin.programas.index',
+            'permission:admin.programas.create',
+            'permission:admin.programas.update',
+            'permission:admin.programas.destroy',
+            'permission:admin.programas.edit',
         ]);
     }
     public function index()
     {
-        $programas = Programa::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.programas.index', compact('programas'));
+        // $programas = Programa::orderBy('id', 'DESC')->paginate(10);
+        $programa = Programa::get();
+        return view('admin.programas.index', compact('programa'));
     }
 
 
     public function create()
     {
-        $sectores = Programa::all();
+        // $sectores = Programa::all();
+        $sectores = Sector::all();
         return view('admin.programas.create', compact('sectores'));
     }
 
@@ -44,7 +46,7 @@ class ProgramaController extends Controller
             'codProg' => $request->codProg,
             'nomProg' => $request->nomProg,
             'slug' => Str::slug($request->codProg, '-'),
-            'fK_sector' => $request->fK_sector,
+            'fK_sector' => $request->fK_sector
         ]);
         return redirect()->route('admin.programas.index')->with('flash', 'registrado');
     }
@@ -57,6 +59,7 @@ class ProgramaController extends Controller
 
     public function edit(Programa $programa)
     {
+        // $sector = Sector::find($id);
         $sector = Sector::get();
         return view('admin.programas.edit', compact('programa', 'sector'));
     }
@@ -68,7 +71,7 @@ class ProgramaController extends Controller
             'codProg' => $request->codProg,
             'nomProg' => $request->nomProg,
             'slug' => Str::slug($request->codProg, '-'),
-            'fK_sector' => $request->fK_sector,
+            'fK_sector' => $request->fK_sector
         ]);
         return redirect()->route('admin.programas.index')->with('flash', 'actualizado');
     }

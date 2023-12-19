@@ -37,12 +37,12 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="fK_programa">CLASE</label>
+                        <label for="fK_programa">PROGRAMA</label>
                         <select class="select2 @error('fK_programa') is-invalid @enderror" name="fK_programa"
                             id="fK_programa" style="width: 100%;">
 
                             <option disabled selected>Selecciona un programa</option>
-                            @foreach ($programas as $programa)
+                            @foreach ($programa as $programa)
                                 <option value="{{ $programa->id }}"
                                     {{ old('fK_programa', $subprograma->fK_programa) == $programa->id ? 'selected' : '' }}>
                                     {{ $programa->nomProg }}</option>
@@ -56,34 +56,26 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('codProg', 'CODIGO DEL SUBPROGRAMA') !!}
-                        {!! Form::text('codProg', null, [
+                        {!! Form::label('codSP', 'CODIGO DEL SUBPROGRAMA') !!}
+                        {!! Form::text('codSP', null, [
                             'class' => 'form-control',
                             'placeholder' => 'Ingrese el codigo del subprograma',
                         ]) !!}
-                        @error('codProg')
+                        @error('codSP')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('nomProg', 'NOMBRE DEL SUBPROGRAMA') !!}
-                        {!! Form::text('nomProg', null, [
+                        {!! Form::label('nomSP', 'NOMBRE DEL SUBPROGRAMA') !!}
+                        {!! Form::text('nomSP', null, [
                             'class' => 'form-control',
                             'placeholder' => 'Ingrese el nombre del subprograma',
                         ]) !!}
-                        @error('nomProg')
+                        @error('nomSP')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
-
-
-
-
-
-
-
-
                 </div>
                 <!-- /.card-body -->
             </div>

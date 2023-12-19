@@ -29,7 +29,13 @@
 
         <!-- Main content -->
         <section class="content">
-            {!! Form::model($sector, ['route' => ['admin.sectores.update', $sector], 'method' => 'PUT']) !!}
+            {{-- @if($sectores->exists) --}}
+            {{-- {!! Form::model($sectores, ['route' => ['admin.sectores.update', $sectores], 'method' => 'PUT']) !!} --}}
+            {{-- {!! Form::model($sectores, ['route' => ['admin.sectores.update', $sectores->id], 'method' => 'PUT']) !!} --}}
+            {!! Form::model($sector, ['url' => route('admin.sectores.update', $sector->id), 'method' => 'PUT']) !!}
+
+            
+            @csrf
             <div class="card card-primary">
                 {{--  <div class="card-header">
               <h3 class="card-title">General</h3>
@@ -42,7 +48,7 @@
                             style="width: 100%;">
 
                             <option disabled selected>Selecciona un Plan de Desarrollo</option>
-                            @foreach ($planesdesarrollo as $plandesarrollo)
+                            @foreach ($plandesarrollo as $plandesarrollo)
                                 <option value="{{ $plandesarrollo->id }}"
                                     {{ old('fK_pDes', $sector->fK_pDes) == $plandesarrollo->id ? 'selected' : '' }}>
                                     {{ $plandesarrollo->nomPD }}</option>
@@ -87,6 +93,7 @@
                 </div>
             </div>
             {!! Form::close() !!}
+            {{-- @endif --}}
         </section>
         <!-- /.content -->
     </div>

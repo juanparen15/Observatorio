@@ -24,7 +24,7 @@ class ProductoAllExport implements FromView
         } else {
             $planes = Producto::where('user_id', auth()->user()->id)->get();
         }
-        return view('admin.productio.producto_all', [
+        return view('admin.productos.producto_all', [
             'productos' => $planes
         ]);
     }

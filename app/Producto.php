@@ -5,8 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
+
 class Producto extends Model
 {
+    protected $table = 'productos';
+
     protected $fillable = [
         'fK_sProg',
         'fK_tProd',
@@ -34,25 +37,25 @@ class Producto extends Model
     //Relacion Uno a Muchos (Inversa)
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'fK_user', 'id');
     }
 
     //Relacion Uno a Muchos (Inversa)
     public function subprograma()
     {
-        return $this->belongsTo(SubPrograma::class);
+        return $this->belongsTo(SubPrograma::class, 'fK_sProg', 'id');
     }
 
     //Relacion Uno a Muchos (Inversa)
     public function tipoproducto()
     {
-        return $this->belongsTo(TipoProducto::class);
+        return $this->belongsTo(TipoProducto::class, 'fK_tProd', 'id');
     }
 
     //Relacion Uno a Muchos (Inversa)
     public function unidadmedida()
     {
-        return $this->belongsTo(UnidadMedida::class);
+        return $this->belongsTo(UnidadMedida::class, 'fK_uMed', 'id');
     }
 
     //Relacion Uno a Muchos (Inversa)

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnidadMedidasTable extends Migration
+class CreateCacheTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateUnidadMedidasTable extends Migration
      */
     public function up()
     {
-        Schema::create('unidad_medidas', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->nullable()->primary();
-            $table->string('nomUMed');
-            $table->string('slug');
-            $table->timestamps();
+        Schema::create('cache', function (Blueprint $table) {
+            $table->string('key')->unique();
+            $table->text('value');
+            $table->integer('expiration');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateUnidadMedidasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('umedida');
+        Schema::dropIfExists('cache');
     }
 }

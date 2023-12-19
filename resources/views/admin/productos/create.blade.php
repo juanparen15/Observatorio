@@ -31,23 +31,15 @@
 
         <!-- Main content -->
         <section class="content">
-            {!! Form::open(['route' => 'admin.productos.store', 'method' => 'POST']) !!}
+            {!! Form::open(['route' => 'productos.store', 'method' => 'post']) !!}
             <div class="card">
                 <div class="card-body">
 
                     <div class="form-row">
-
-
-                        {{-- <div class="form-group has-success">
-                            <label class="form-label mt-4" for="inputValid">Valid input</label>
-                            <input type="text" value="correct value" class="form-control is-valid" id="inputValid">
-                            <div class="valid-feedback">Success! You've done it.</div>
-                          </div> --}}
-
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="fK_sProg">SUBPROGRAMA:</label>
-                                <select class="select2 @error('Fk_sProg') is-invalid @enderror" name="fK_sProg"
+                                <select class="select2 @error('fk_sProg') is-invalid @enderror" name="fK_sProg"
                                     id="fK_sProg" style="width: 100%;">
                                     <option value="" disabled selected>Seleccione un Subprograma:
                                     </option>
@@ -68,7 +60,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="fK_tProd">TIPO PRODUCTO:</label>
-                                <select class="select2 @error('Fk_tProd') is-invalid @enderror" name="fK_tProd"
+                                <select class="select2 @error('fk_tProd') is-invalid @enderror" name="fK_tProd"
                                     id="fK_tProd" style="width: 100%;">
                                     <option value="" disabled selected>Seleccione un Tipo de Producto:
                                     </option>
@@ -89,7 +81,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="fK_uMed">UNIDAD DE MEDIDA:</label>
-                                <select class="select2 @error('Fk_uMed') is-invalid @enderror" name="fK_uMed" id="fK_uMed"
+                                <select class="select2 @error('fk_uMed') is-invalid @enderror" name="fK_uMed" id="fK_uMed"
                                     style="width: 100%;">
                                     <option value="" disabled selected>Seleccione una Unidad de Medida:
                                     </option>
@@ -106,131 +98,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        {{-- <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="area_id">OFICINA PRODUCTORA:</label>
-                                <select class="select2 @error('area_id') is-invalid @enderror" name="area_id" id="area_id"
-                                    style="width: 100%;">
-                                    <option disabled selected>Seleccione una Unidad Administrativa</option>
-                                    @foreach ($areas as $area)
-                                        <option value="{{ $area->id }}" selected>{{ $area->nomarea }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('area_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
-
-                        {{-- 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="modalidad_id">OBJETO:</label>
-                                <select class="select2 @error('modalidad_id') is-invalid @enderror" name="modalidad_id"
-                                    id="modalidad_id" style="width: 100%;">
-                                    <option disabled selected>Seleccione un Objeto</option>
-                                    @foreach ($modalidades as $modalidad)
-                                        <option value="{{ $modalidad->id }}"
-                                            {{ old('modalidad_id') == $modalidad->id ? 'selected' : '' }}>
-                                            {{ $modalidad->detmodalidad }}</option>
-                                    @endforeach
-                                </select>
-                                @error('modalidad_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
-
-                        <!-- {{-- <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="objeto">Objeto:</label>
-                            <input type="text" placeholder="Escriba el Objeto Documental" name="objeto" id="objeto"
-                                class="form-control" required>
-                        </div>
-                     </div> --}} -->
-
-                        {{-- <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="requiproyecto_id">CODIGO DE DEPENDENCIA:</label>
-                                <select class="select2 @error('requiproyecto_id') is-invalid @enderror"
-                                    name="requiproyecto_id" id="requiproyecto_id" style="width: 100%;">
-                                    <option value="" disabled selected>Seleccione Codigo de Dependencia</option>
-                                    @foreach ($requiproyectos as $requiproyectoId => $requiproyecto)
-                                        <option value="{{ $requiproyectoId }}" selected>{{ $requiproyecto }}</option>
-                                    @endforeach
-                                </select>
-                                @error('requiproyecto_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-md-4"> --}}
-                        {{-- <div class="form-group">
-                                <label for="segmento_id">TIPO DE SERIE DOCUMENTAL:</label>
-                                <select class="select2 @error('segmento_id') is-invalid @enderror" name="segmento_id"
-                                    id="segmento_id" style="width: 100%;">
-                                    <option value="" disabled selected>Seleccione un Tipo de Series Documentales:
-                                    </option>
-                                    @foreach ($segmentos as $segmento)
-                                        <option value="{{ $segmento->id }}"
-                                            {{ old('segmento_id') == $segmento->id ? 'selected' : '' }}>
-                                            {{ $segmento->id }} - {{ $segmento->detsegmento }}</option>
-                                    @endforeach
-                                </select>
-                                @error('segmento_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="familias_id">TIPO DE SUBSERIE DOCUMENTAL:</label>
-                                <select class="select2 @error('familias_id') is-invalid @enderror" name="familias_id"
-                                    id="familias_id" style="width: 100%;">
-                                    <option value="" disabled selected>Seleccione un Tipo de Subserie Documental:
-                                    </option> --}}
-                        {{-- @foreach ($familias as $familia)
-                                <option value="{{$familia->id}}">{{$familia->detfamilia}}</option>
-                                @endforeach --}}
-                        {{-- </select>
-                                @error('familias_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label>FECHAS EXTREMAS | Fecha Inicial:</label>
-                            <div class="form-label-group">
-                                <input placeholder="Escriba la fecha inicial" type="text" class="form-control"
-                                    name="fechaInicial" id="fechaInicialInput" required>
-                            </div>
-                            <span id="fechaMostrada"></span>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label for="fechaFinal">FECHAS EXTREMAS | Fecha Final:</label>
-                            <div class="form-group">
-                                <input placeholder="Escriba la fecha final" type="text" class="form-control"
-                                    name="fechaFinal" id="fechaFinalInput" required>
-                            </div>
-                            <span id="fechaFinalMostrada"></span>
-                        </div> --}}
-
 
                         <div class="col-md-4">
                             <label>CODIGO PRODUCTO</label>
@@ -251,8 +118,8 @@
                         <div class="col-md-4">
                             <label>INDICADOR BASE</label>
                             <div class="form-group mb-3">
-                                <input placeholder="Escriba el IB del producto" type="text" class="form-control"
-                                    name="iB" id="iB" required>
+                                <input placeholder="Escriba el Indicador Base del producto" type="text"
+                                    class="form-control" name="iB" id="iB" required>
                             </div>
                         </div>
 
@@ -403,27 +270,27 @@
 
         });
 
-        var fK_sProg = $('#fK_sProg');
-        var fK_tProd = $('#fK_tProd');
-        fK_sProg.change(function() {
-            $.ajax({
-                url: "{{ route('obtener_productos') }}",
-                method: 'GET',
-                data: {
-                    fK_sProg: fK_sProg.val(),
-                },
-                success: function(data) {
-                    fK_tProd.empty();
-                    fK_tProd.append(
-                        '<option disabled selected>Seleccione un Tipo Producto:</option>'
-                    );
-                    $.each(data, function(index, element) {
-                        fK_tProd.append('<option value="' + element.id + '">' + element
-                            .nomProd + '</option>')
-                    });
-                }
-            });
-        });
+        // var fK_sProg = $('#fK_sProg');
+        // var fK_tProd = $('#fK_tProd');
+        // fK_sProg.change(function() {
+        //     $.ajax({
+        //         url: "{{ route('obtener_productos') }}",
+        //         method: 'GET',
+        //         data: {
+        //             fK_sProg: fK_sProg.val(),
+        //         },
+        //         success: function(data) {
+        //             fK_tProd.empty();
+        //             fK_tProd.append(
+        //                 '<option disabled selected>Seleccione un Tipo Producto:</option>'
+        //             );
+        //             $.each(data, function(index, element) {
+        //                 fK_tProd.append('<option value="' + element.id + '">' + element
+        //                     .nomProd + '</option>')
+        //             });
+        //         }
+        //     });
+        // });
 
         // var otro = $('#otro');
         // var requipoais_id = $('#requipoais_id');

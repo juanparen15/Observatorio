@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('enviar-datos:power-bi')->everyMinute(); // Puedes ajustar la frecuencia según tus necesidades
         // $schedule->command('inspire')->hourly();
     }
 

@@ -13,7 +13,7 @@ class CreatePlanesDesarrolloTable extends Migration
      */
     public function up()
     {
-        Schema::create('pdesarrollo', function (Blueprint $table) {
+        Schema::create('plandesarrollo', function (Blueprint $table) {
            $table->unsignedBigInteger('id')->nullable()->primary();
             //$table->id();
             $table->string('anno');

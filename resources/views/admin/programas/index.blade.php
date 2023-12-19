@@ -55,7 +55,7 @@
                     </thead>
                     <tbody>
 
-                     @foreach ($programas as $programa)
+                     @foreach ($programa as $programa)
                      <tr>
                        <td>{{$programa->id}}</td>
                        <td>{{$programa->sector->nomS}}</td>
@@ -79,7 +79,7 @@
                   </table>
                 </div>
 
-                {{$programas->links()}}
+                {{-- {{$programas->links()}} --}}
 
                 <!-- /.card-body -->
             </div>
@@ -103,7 +103,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'La Clase se Actualizo con Exito.'
+            title: 'El programa se Actualizó con Exito.'
         })
       });
 </script>
@@ -119,7 +119,7 @@
         });
         Toast.fire({
             icon: 'success',
-            title: 'La clase se Creo con Exito.'
+            title: 'El programa se creó con Exito.'
         })
       });
 </script>
@@ -128,7 +128,7 @@
 <script>
     Swal.fire(
         '¡Eliminado!',
-        'La Clase se Elimino con Exito.',
+        'El programa se eliminó con Exito.',
         'success'
       )
 </script>

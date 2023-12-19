@@ -145,7 +145,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Inventario
+                                    Observatorio
                                 </h3>
                                 @can('productos.export')
                                     <div class="card-tools">
@@ -170,6 +170,9 @@
                             {{-- <figure class="highcharts-figure">
                                 <div id="containerLabel"></div>
                             </figure> --}}
+                            <iframe title="OBSERVATORIO" width="1700" height="1000"
+                                src="https://app.powerbi.com/reportEmbed?reportId=eeaaed49-58ae-4c0c-8a84-77e1d151e429&autoAuth=true&ctid=adc06a38-4631-43a5-b3fd-badb63447935"
+                                frameborder="0" allowFullScreen="true"></iframe>
                         </div>
                     </section>
                 </div>
@@ -267,7 +270,7 @@
                     visible: false
                 },
                 title: {
-                    text: '<br>Linea de tiempo</br> Inventario Documental Alcaldia Municipal'
+                    text: '<br>Linea de tiempo</br> Observatorio Alcaldia Municipal'
                 },
                 subtitle: {
                     text: 'Mas Información: <a href="https://www.puertoboyaca-boyaca.gov.co">https://www.puertoboyaca-boyaca.gov.co</a>'

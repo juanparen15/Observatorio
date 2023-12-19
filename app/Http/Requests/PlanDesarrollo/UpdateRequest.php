@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'anno' => 'required',
-            'nomPD' => 'required'
+            'nomPD' => 'required',
         ];
     }
 }

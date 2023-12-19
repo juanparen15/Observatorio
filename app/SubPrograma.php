@@ -8,15 +8,15 @@ class SubPrograma extends Model
 {
     public $incrementing = false;
     protected $table = 'subprograma';
-    protected $fillable= ['id','fK_programa', 'codProg', 'nomProg', 'slug'];
+    protected $fillable= ['id','fK_programa', 'codSP', 'nomSP', 'slug'];
 
     public function getRouteKeyName() {
       return "slug";
     }
 
     //Relacion Uno a Muchos (Inversa)
-    public function programas(){
-        return $this->belongsTo(Programa::class);
+    public function programa(){
+        return $this->belongsTo(Programa::class, 'fK_programa', 'id');
     }
 
     //Relacion Uno a Muchos

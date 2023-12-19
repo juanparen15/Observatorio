@@ -6,21 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sector extends Model
 {
-    public $incrementing = false;
-    protected $table = 'sectores';
-    protected $fillable= ['id','fK_pDes','codS', 'nomS', 'slug'];
+  public $incrementing = false;
+  protected $table = 'sectores';
+  protected $primaryKey = 'id';
+  protected $fillable = ['id', 'fK_pDes', 'codS', 'nomS', 'slug'];
 
-    public function getRouteKeyName() {
-      return "slug";
-    }
+  public function getRouteKeyName()
+  {
+    return "slug";
+  }
 
-   //Relacion Uno a Muchos (Inversa)
-   public function planesDesarrollo(){
-      return $this->belongsTo(PlanDesarrollo::class);
-    }
+  //Relacion Uno a Muchos (Inversa)
+  public function planDesarrollo()
+  {
+    return $this->belongsTo(PlanDesarrollo::class, 'fK_pDes', 'id');
+  }
 
-   //Relacion Uno a Muchos 
-   public function programas(){
-     return $this->hasMany(Programa::class);
-    }
+  //Relacion Uno a Muchos 
+  public function programa()
+  {
+    return $this->hasMany(Programa::class);
+  }
 }

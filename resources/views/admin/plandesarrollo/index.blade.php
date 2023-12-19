@@ -149,8 +149,9 @@
                 document.delete_form.submit();
             }
         })
-    }
+    };
 </script>
+
 <!-- DataTables  & Plugins -->
 {!! Html::script('adminlte/plugins/datatables/jquery.dataTables.min.js') !!}
 {!! Html::script('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') !!}

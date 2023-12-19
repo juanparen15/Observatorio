@@ -13,7 +13,7 @@ class CreateAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
+        Schema::create('area', function (Blueprint $table) {
             $table->id();
             $table->string('codA');
             $table->string('nomA');

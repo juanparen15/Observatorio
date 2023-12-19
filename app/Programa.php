@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Programa extends Model
 {
     public $incrementing = false;
-    protected $table = 'programa';
+    protected $table = 'programas';
     protected $fillable= [
         'id',
         'fK_sector',
@@ -21,8 +21,8 @@ class Programa extends Model
     }
      
     //Relacion Uno a Muchos (Inversa)
-    public function sectores(){
-        return $this->belongsTo(Sector::class);
+    public function sector(){
+        return $this->belongsTo(Sector::class, 'fK_sector', 'id');
     }
 
     //Relacion Uno a Muchos 

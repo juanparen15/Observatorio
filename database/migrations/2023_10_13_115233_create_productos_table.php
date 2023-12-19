@@ -13,7 +13,7 @@ class CreateProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('producto', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('fK_sProg')->nullable();
             $table->unsignedBigInteger('fK_tProd')->nullable();
@@ -21,7 +21,7 @@ class CreateProductosTable extends Migration
             $table->unsignedBigInteger('fK_user')->nullable();
             $table->string('codProd');
             $table->string('nomProd');
-            $table->string('IB');
+            $table->string('iB');
             $table->string('mCuatrienia');
 
             $table->string('slug');

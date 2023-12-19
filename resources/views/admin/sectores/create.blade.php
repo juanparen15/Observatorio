@@ -39,9 +39,8 @@
                         <label for="fK_pDes">PLAN DE DESARROLLO</label>
                         <select class="select2 @error('fK_pDes') is-invalid @enderror" name="fK_pDes" id="fK_pDes"
                             style="width: 100%;">
-
                             <option disabled selected>Selecciona un Plan de Desarrollo</option>
-                            @foreach ($planesdesarrollo as $plandesarrollo)
+                            @foreach ($plandesarrollo as $plandesarrollo)
                                 <option value="{{ $plandesarrollo->id }}"
                                     {{ old('fK_pDes') == $plandesarrollo->id ? 'selected' : '' }}>
                                     {{ $plandesarrollo->nomPD }}</option>
@@ -108,7 +107,7 @@
                 success: function(data) {
                     fK_sector.empty();
                     fK_sector.append(
-                        '<option disabled selected>Seleccione un Sector:</option>'
+                        '<option disabled selected>Seleccione un Plan de Desarrollo:</option>'
                     );
                     $.each(data, function(index, element) {
                         fK_sector.append('<option value="' + element.id + '">' + element
@@ -119,6 +118,4 @@
             });
         });
     </script>
-
-
 @endsection

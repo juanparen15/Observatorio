@@ -24,9 +24,22 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'codProg' => 'required',
-            'nomProg' => 'required',
-            'fK_sector' => 'required'
+            // 'codProg' => 'required',
+            // 'nomProg' => 'required',
+            // 'fK_sector' => 'required',
+            'codProg' => 'required|unique:programas',
+            'nomProg' => 'required|unique:programas',
+            'fK_sector'=>'integer|required|exists:App\Sector,id',
         ];
+    }
+    public function messages()
+    {
+        return[
+            'codProg.required'=> 'Este Campo es Requerido',
+            'nomProg.required'=> 'Este Campo es Requerido',
+            'fK_sector.required'=>'Este Campo es Requerido',
+            
+        ];
+        
     }
 }

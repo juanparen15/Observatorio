@@ -15,25 +15,25 @@ class SubProgramaController extends Controller
     {
         $this->middleware('auth');
         $this->middleware([
-            // 'permission:admin.subprogramas.store',
-            // 'permission:admin.subprogramas.index',
-            // 'permission:admin.subprogramas.create',
-            // 'permission:admin.subprogramas.update',
-            // 'permission:admin.subprogramas.destroy',
-            // 'permission:admin.subprogramas.edit'
+            'permission:admin.subprogramas.store',
+            'permission:admin.subprogramas.index',
+            'permission:admin.subprogramas.create',
+            'permission:admin.subprogramas.update',
+            'permission:admin.subprogramas.destroy',
+            'permission:admin.subprogramas.edit'
         ]);
     }
 
     
     public function index()
     {
-
-        return view('admin.subprogramas.index');
+        $subprograma = SubPrograma::get();
+        return view('admin.subprogramas.index', compact('subprograma'));
     }
 
     public function create()
     {
-        $programas = Programa::get();
+        $programas = Programa::all();
         return view('admin.subprogramas.create', compact('programas'));
     }
 
@@ -57,8 +57,8 @@ class SubProgramaController extends Controller
 
     public function edit(SubPrograma $subprograma)
     {
-        $programas = Programa::get();
-        return view('admin.subprogramas.edit', compact('subprograma', 'programas'));
+        $programa = Programa::get();
+        return view('admin.subprogramas.edit', compact('subprograma', 'programa'));
     }
 
     public function update(UpdateRequest $request, SubPrograma $subprograma)

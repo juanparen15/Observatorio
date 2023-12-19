@@ -30,7 +30,7 @@ class UpdateRequest extends FormRequest
             'fK_user'=> 'required',
             'codProd'=> 'required',
             'nomProd'=> 'required',
-            'IB'=> 'required',
+            'iB'=> 'required',
             'mCuatrienia'=> 'required',
         ];
     }

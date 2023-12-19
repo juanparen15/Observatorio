@@ -40,12 +40,10 @@
                         <label for="fK_sector">SECTOR</label>
                         <select class="select2 @error('fK_sector') is-invalid @enderror" name="fK_sector" id="fK_sector"
                             style="width: 100%;">
-
                             <option disabled selected>Selecciona un Sector</option>
                             @foreach ($sectores as $sector)
                                 <option value="{{ $sector->id }}" {{ old('fK_sector') == $sector->id ? 'selected' : '' }}>
-                                    {{ $sector->nomS }}
-                                </option>
+                                    {{ $sector->nomS }}</option>
                             @endforeach
                         </select>
                         @error('fK_sector')
@@ -90,34 +88,36 @@
     <!-- Select2 -->
     {!! Html::script('adminlte/plugins/select2/js/select2.full.min.js') !!}
     <script>
-      $(function() {
+        $(function() {
 
-          //Initialize Select2 Elements
-          $('.select2').select2()
+            //Initialize Select2 Elements
+            $('.select2').select2()
 
-      });
+        });
 
-      var fK_sector = $('#fK_sector');
-      var fK_programa = $('#fK_programa');
-      fK_sector.change(function() {
-          $.ajax({
-              url: "{{ route('obtener_programas') }}",
-              method: 'GET',
-              data: {
-                  fK_sector: fK_sector.val(),
-              },
-              success: function(data) {
-                  fK_programa.empty();
-                  fK_programa.append(
-                      '<option disabled selected>Seleccione un Programa:</option>'
-                  );
-                  $.each(data, function(index, element) {
-                      fK_programa.append('<option value="' + element.id + '">' + element
-                          .nomProg + '</option>')
-                  });
+    //     var fK_sector = $('#fK_sector');
+    //     var fK_programa = $('#fK_programa');
 
-              }
-          });
-      });
-  </script>
+    //     fK_sector.change(function() {
+    //         $.ajax({
+    //             url: "{{ route('obtener_programas') }}",
+    //             method: 'GET',
+    //             data: {
+    //                 fK_sector: fK_sector.val(),
+    //             },
+    //             success: function(data) {
+    //                 fK_programa.empty();
+    //                 fK_programa.append(
+    //                     '<option disabled selected>Seleccione un Sector:</option>'
+    //                 );
+    //                 $.each(data, function(index, element) {
+    //                     fK_programa.append('<option value="' + element.id + '">' +
+    //                         element
+    //                         .nomProg + '</option>')
+    //                 });
+
+    //             }
+    //         });
+    //     });
+    // </script>
 @endsection

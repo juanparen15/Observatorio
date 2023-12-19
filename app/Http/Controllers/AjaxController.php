@@ -9,7 +9,7 @@ use App\SubPrograma;
 use Illuminate\Http\Request;
 
 class AjaxController extends Controller
-{
+{    
     public function obtener_sectores(Request $request)
     {
         if ($request->ajax()) {

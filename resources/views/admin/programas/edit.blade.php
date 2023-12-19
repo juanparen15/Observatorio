@@ -42,7 +42,7 @@
                             style="width: 100%;">
 
                             <option disabled selected>Selecciona un Sector</option>
-                            @foreach ($sectores as $sector)
+                            @foreach ($sector as $sector)
                                 <option value="{{ $sector->id }}"
                                     {{ old('fK_sector', $programa->fK_sector) == $sector->id ? 'selected' : '' }}>
                                     {{ $sector->nomS }}</option>

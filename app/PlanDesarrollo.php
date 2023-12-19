@@ -16,7 +16,7 @@ class PlanDesarrollo extends Model
     
 
      //Relacion Uno a Muchos 
-     public function sectores(){
+     public function sector(){
         return $this->hasMany(Sector::class);
     }
 }

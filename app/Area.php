@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
     public $incrementing = false;
+    protected $table = 'area';
     protected $fillable= ['id','fK_car', 'codA', 'nomA', 'slug'];
 
     public function getRouteKeyName() {
@@ -20,6 +21,6 @@ class Area extends Model
 
     //Relacion Uno a Muchos (Inversa)
     public function cartera(){
-       return $this->belongsTo(Cartera::class);
+       return $this->belongsTo(Cartera::class, 'fK_car', 'id' );
     }
 }

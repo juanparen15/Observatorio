@@ -13,7 +13,7 @@ class CreateTipoProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tproducto', function (Blueprint $table) {
+        Schema::create('tipo_productos', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->nullable()->primary();
             $table->string('nomProd');
             $table->string('slug');
